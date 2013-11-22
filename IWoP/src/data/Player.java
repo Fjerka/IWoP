@@ -12,7 +12,7 @@ import data.interfaces.IPokemon;
  *
  * @author Stefan
  */
-public class Player implements IPlayer, Constants {
+public class Player implements IPlayer {
 
     IPokemon[] party;
 

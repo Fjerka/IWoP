@@ -4,7 +4,7 @@ import data.interfaces.Constants;
 import data.interfaces.IMove;
 import data.interfaces.IPokemon;
 
-public class Pokemon implements IPokemon, Constants {
+public class Pokemon implements IPokemon {
 
     String name;
     int number, maxhp, hp, maxEnergy, energy, love, sex, lvl, exp, currentExp,
@@ -102,17 +102,17 @@ public class Pokemon implements IPokemon, Constants {
     public int getState() {
         int tmp = (100 * energy) / maxEnergy;
         if (tmp == 0) {
-            return PKMN_FAINTED;
+            return Constants.PKMN_FAINTED;
         } else if (tmp < 20) {
-            return PKMN_EXHAUSTED;
+            return Constants.PKMN_EXHAUSTED;
         } else if (tmp < 40) {
-            return PKMN_VERY_TIRED;
+            return Constants.PKMN_VERY_TIRED;
         } else if (tmp < 60) {
-            return PKMN_TIRED;
+            return Constants.PKMN_TIRED;
         } else if (tmp < 80) {
-            return PKMN_NORMAL;
+            return Constants.PKMN_NORMAL;
         } else {
-            return PKMN_RESTED;
+            return Constants.PKMN_RESTED;
         }
     }
 
