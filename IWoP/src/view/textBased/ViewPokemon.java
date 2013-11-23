@@ -5,17 +5,13 @@
 package view.textBased;
 
 import data.interfaces.Constants;
-import static data.interfaces.Constants.PKMN_FEMALE;
-import static data.interfaces.Constants.PKMN_MALE;
-import static data.interfaces.Constants.PKMN_NO_SEX;
-import static data.interfaces.Constants.PKMN_VERY_TIRED;
 import data.interfaces.IPokemon;
 
 /**
  *
  * @author Stefan
  */
-public class ViewPokemon implements Constants {
+public class ViewPokemon{
 
     public void printBasicInfo(IPokemon p, int i) {
         if (p == null) {
@@ -24,19 +20,19 @@ public class ViewPokemon implements Constants {
         }
         String sex;
         switch (p.getSex()) {
-            case PKMN_MALE:
+            case Constants.PKMN_MALE:
                 sex = "male";
                 break;
-            case PKMN_FEMALE:
+            case Constants.PKMN_FEMALE:
                 sex = "female";
                 break;
-            case PKMN_NO_SEX:
+            case Constants.PKMN_NO_SEX:
                 sex = "non";
                 break;
             default:
                 sex = "ERROR";
         }
-        System.out.printf("%2d) %-15s %6s Lvl. %-3d%n", i, p.getName(), sex, p.getLvl());
+        System.out.printf("%2d) %-15s %6s%n", i, p.getName(), sex);
     }
 
     public void printAdvancedInfo(IPokemon p) {
@@ -45,46 +41,47 @@ public class ViewPokemon implements Constants {
         }
         String sex, state;
         switch (p.getSex()) {
-            case PKMN_MALE:
+            case Constants.PKMN_MALE:
                 sex = "male";
                 break;
-            case PKMN_FEMALE:
+            case Constants.PKMN_FEMALE:
                 sex = "female";
                 break;
-            case PKMN_NO_SEX:
+            case Constants.PKMN_NO_SEX:
                 sex = "non";
                 break;
             default:
                 sex = "ERROR";
         }
         switch (p.getState()) {
-            case PKMN_FAINTED:
+            case Constants.PKMN_FAINTED:
                 state = "fainted";
                 break;
-            case PKMN_EXHAUSTED:
+            case Constants.PKMN_EXHAUSTED:
                 state = "exhausted";
                 break;
-            case PKMN_VERY_TIRED:
+            case Constants.PKMN_VERY_TIRED:
                 state = "very tired";
                 break;
-            case PKMN_TIRED:
+            case Constants.PKMN_TIRED:
                 state = "tired";
                 break;
-            case PKMN_NORMAL:
+            case Constants.PKMN_NORMAL:
                 state = "normal";
                 break;
-            case PKMN_RESTED:
+            case Constants.PKMN_RESTED:
                 state = "rested";
                 break;
             default:
                 state = "ERROR";
         }
         System.out.printf("%-15s %6s%n", p.getName(), sex);
-        System.out.printf("Lvl. %-3d Exp. %8d/%-8d%n",p.getLvl(),p.getCurrentExp(),p.getExp());
+        System.out.printf("Exp. %8d/%-8d Attitude: %3d%n",p.getCurrentExp(),p.getExp(), p.getLove());
         System.out.printf("HP: %5d/%-5d Energy: %5d/%-5d it is %-10s%n",p.getHP(),p.getMaxHP(),p.getEnergy(),p.getMaxEnrgy(),state);
-        System.out.printf("%-10s %4d   %-11s %4d%n","Attack",p.getAttack(),"Speed",p.getSpeed());
-        System.out.printf("%-10s %4d   %-11s %4d%n","Defense",p.getDefense(),"Accuracy",p.getAccuracy());
-        System.out.printf("%-10s %4d   %-11s %4d%n","spAttack",p.getSpAttack(),"Evasiveness",p.getEvasiveness());
-        System.out.printf("%-10s %4d%n","spDefense",p.getSpDefense());
+        System.out.printf("%-10s %4s %6s   %-8s %4s %6s%n","","","Multi.","","","Multi.");
+        System.out.printf("%-10s %4d %3d   %-11s %4d %3d%n","Attack",p.getAttack(),p.getAttackMultiplier(),"Speed",p.getSpeed(),p.getSpeedMultiplier());
+        System.out.printf("%-10s %4d %3d   %-11s %4d %3d%n","Defense",p.getDefense(),p.getDefenseMultiplier(),"Accuracy",p.getAccuracy(),p.getAccuracyMultiplier());
+        System.out.printf("%-10s %4d %3d   %-11s %4d %3d%n","spAttack",p.getSpAttack(),p.getSpAttackMultiplier(),"Evasiveness",p.getEvasiveness(),p.getEvasiveness());
+        System.out.printf("%-10s %4d %3d%n","spDefense",p.getSpDefense(),p.getSpDefenseMultiplier());
     }
 }

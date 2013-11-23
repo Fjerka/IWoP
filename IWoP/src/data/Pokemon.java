@@ -7,38 +7,49 @@ import data.interfaces.IPokemon;
 public class Pokemon implements IPokemon {
 
     String name;
-    int number, maxhp, hp, maxEnergy, energy, love, sex, lvl, exp, currentExp,
-            attack, currentAttack, defense, currentDefense, spAttack, currentSpAttack,
-            spDefense, currentSpDefense, speed, currentSpeed, accuracy, currentAccuracy,
-            evasiveness, currentEvasiveness;
+    int number, maxHp, hp, hpMultiplier, maxEnergy, energy, energyMultiplier, love,
+            sex, exp, currentExp, attack, currentAttack, attackMultiplier, defense,
+            currentDefense, defenseMultiplier, spAttack, currentSpAttack, spAttackMultiplier,
+            spDefense, currentSpDefense, spDefenseMultiplier, speed, currentSpeed,
+            speedMultiplier, accuracy, currentAccuracy, accuracyMultiplier,
+            evasiveness, currentEvasiveness, evasivenessMultiplier, evolution;
     IMove[] moves;
 
-    public Pokemon(String name, int number, int maxhp, int maxEnergy, int sex, int lvl, int exp, int attack, int defense, int spAttack, int spDefense, int speed, int accuracy, int evasiveness, IMove[] moves) {
+    public Pokemon(String name, int number, int maxHp, int hpMultiplier, int maxEnergy, int energyMultiplier, int love, int sex, int exp, int attack, int attackMultiplier, int defense, int defenseMultiplier, int spAttack, int spAttackMultiplier, int spDefense, int spDefenseMultiplier, int speed, int speedMultiplier, int accuracy, int accuracyMultiplier, int evasiveness, int evasivenessMultiplier, int evolution, IMove[] moves) {
         this.name = name;
         this.number = number;
-        this.maxhp = maxhp;
-        hp = maxhp;
+        this.maxHp = maxHp;
+        this.hp = maxHp;
+        this.hpMultiplier = hpMultiplier;
         this.maxEnergy = maxEnergy;
-        energy = maxEnergy;
-        love = 0;
+        this.energy = maxEnergy;
+        this.energyMultiplier = energyMultiplier;
+        this.love = love;
         this.sex = sex;
-        this.lvl = lvl;
         this.exp = exp;
-        currentExp = 0;
+        this.currentExp = 0;
         this.attack = attack;
-        currentAttack = attack;
+        this.currentAttack = attack;
+        this.attackMultiplier = attackMultiplier;
         this.defense = defense;
-        currentDefense = defense;
+        this.currentDefense = defense;
+        this.defenseMultiplier = defenseMultiplier;
         this.spAttack = spAttack;
-        currentSpAttack = spAttack;
+        this.currentSpAttack = spAttack;
+        this.spAttackMultiplier = spAttackMultiplier;
         this.spDefense = spDefense;
-        currentSpDefense = spDefense;
+        this.currentSpDefense = spDefense;
+        this.spDefenseMultiplier = spDefenseMultiplier;
         this.speed = speed;
-        currentSpeed = speed;
+        this.currentSpeed = speed;
+        this.speedMultiplier = speedMultiplier;
         this.accuracy = accuracy;
-        currentAccuracy = accuracy;
+        this.currentAccuracy = accuracy;
+        this.accuracyMultiplier = accuracyMultiplier;
         this.evasiveness = evasiveness;
-        currentEvasiveness = evasiveness;
+        this.currentEvasiveness = evasiveness;
+        this.evasivenessMultiplier = evasivenessMultiplier;
+        this.evolution = evolution;
         this.moves = moves;
     }
 
@@ -54,7 +65,7 @@ public class Pokemon implements IPokemon {
 
     @Override
     public int getMaxHP() {
-        return maxhp;
+        return maxHp;
     }
 
     @Override
@@ -63,16 +74,21 @@ public class Pokemon implements IPokemon {
     }
 
     @Override
+    public int getHPMultiplier() {
+        return hpMultiplier;
+    }
+
+    @Override
     public void changeHP(int i) {
         hp += i;
-        if (hp > maxhp) {
-            hp = maxhp;
+        if (hp > maxHp) {
+            hp = maxHp;
         }
     }
 
     @Override
     public void resetHP() {
-        hp = maxhp;
+        hp = maxHp;
     }
 
     @Override
@@ -83,6 +99,11 @@ public class Pokemon implements IPokemon {
     @Override
     public int getEnergy() {
         return energy;
+    }
+
+    @Override
+    public int getEnergyMultiplier() {
+        return energyMultiplier;
     }
 
     @Override
@@ -100,16 +121,15 @@ public class Pokemon implements IPokemon {
 
     @Override
     public int getState() {
-        int tmp = (100 * energy) / maxEnergy;
-        if (tmp == 0) {
+        if (energy == 0) {
             return Constants.PKMN_FAINTED;
-        } else if (tmp < 20) {
+        } else if (energy < 20) {
             return Constants.PKMN_EXHAUSTED;
-        } else if (tmp < 40) {
+        } else if (energy < 40) {
             return Constants.PKMN_VERY_TIRED;
-        } else if (tmp < 60) {
+        } else if (energy < 60) {
             return Constants.PKMN_TIRED;
-        } else if (tmp < 80) {
+        } else if (energy < 80) {
             return Constants.PKMN_NORMAL;
         } else {
             return Constants.PKMN_RESTED;
@@ -124,29 +144,11 @@ public class Pokemon implements IPokemon {
     @Override
     public void changeLove(int i) {
         love += i;
-        if (love > 100) {
-            love = 100;
-        }
     }
 
     @Override
     public int getSex() {
         return sex;
-    }
-
-    @Override
-    public int getLvl() {
-        return lvl;
-    }
-
-    /**
-     * Increases the level of a pokemon by 1, increase tha amount of exp needed
-     * for next lvl and lowers curretnExp by the value of exp.
-     */
-    private void increaseLvl() {
-        lvl++;
-        currentExp = currentExp - exp;
-        exp = (int) 1.5 * exp;
     }
 
     @Override
@@ -162,9 +164,14 @@ public class Pokemon implements IPokemon {
     @Override
     public void changeCurrentExp(int i) {
         currentExp += i;
-        if (currentExp >= exp) {
-            increaseLvl();
+        if (currentExp > exp) {
+            // evolve !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
+    }
+
+    @Override
+    public int getEvolution() {
+        return evolution;
     }
 
     @Override
@@ -175,6 +182,11 @@ public class Pokemon implements IPokemon {
     @Override
     public int getCurrentAttack() {
         return currentAttack;
+    }
+
+    @Override
+    public int getAttackMultiplier() {
+        return attackMultiplier;
     }
 
     @Override
@@ -198,6 +210,11 @@ public class Pokemon implements IPokemon {
     }
 
     @Override
+    public int getDefenseMultiplier() {
+        return defenseMultiplier;
+    }
+
+    @Override
     public void changeCurrentDefense(int i) {
         currentDefense += i;
     }
@@ -215,6 +232,11 @@ public class Pokemon implements IPokemon {
     @Override
     public int getCurrentSpAttack() {
         return currentSpAttack;
+    }
+
+    @Override
+    public int getSpAttackMultiplier() {
+        return spAttackMultiplier;
     }
 
     @Override
@@ -238,6 +260,11 @@ public class Pokemon implements IPokemon {
     }
 
     @Override
+    public int getSpDefenseMultiplier() {
+        return spDefenseMultiplier;
+    }
+
+    @Override
     public void changeCurrentSpDefense(int i) {
         currentSpDefense += i;
     }
@@ -255,6 +282,11 @@ public class Pokemon implements IPokemon {
     @Override
     public int getCurrentSpeed() {
         return currentSpeed;
+    }
+
+    @Override
+    public int getSpeedMultiplier() {
+        return speedMultiplier;
     }
 
     @Override
@@ -278,6 +310,11 @@ public class Pokemon implements IPokemon {
     }
 
     @Override
+    public int getAccuracyMultiplier() {
+        return accuracyMultiplier;
+    }
+
+    @Override
     public void changeCurrentAccuracy(int i) {
         currentAccuracy += i;
     }
@@ -298,6 +335,11 @@ public class Pokemon implements IPokemon {
     }
 
     @Override
+    public int getEvasivenessMultiplier() {
+        return evasivenessMultiplier;
+    }
+
+    @Override
     public void changeCurrentEvasiveness(int i) {
         currentEvasiveness += i;
     }
@@ -309,18 +351,12 @@ public class Pokemon implements IPokemon {
 
     @Override
     public IMove getMove(int i) {
-        if (i >= 0 && i < 6) {
-            return moves[i];
-        } else {
-            return null;
-        }
+        return moves[i % 6];
     }
 
     @Override
     public void setMove(IMove m, int i) {
-        if (i >= 0 && i < 6) {
-            moves[i] = m;
-        }
+        moves[i % 6] = m;
     }
 
     @Override

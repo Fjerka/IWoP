@@ -38,6 +38,12 @@ public interface IPokemon {
      * @return current hit points
      */
     int getHP();
+    
+    /**
+     * Get the exp multiplier for determination of HP increase.
+     * @return HP multiplier
+     */
+    int getHPMultiplier();
 
     /**
      * Changes current amount of hit points of a pokemon by the value of param
@@ -66,6 +72,12 @@ public interface IPokemon {
      * @return current amount of an energy
      */
     int getEnergy();
+    
+     /**
+     * Get the exp multiplier for determination of Energy increase.
+     * @return Energy multiplier
+     */
+    int getEnergyMultiplier();
 
     /**
      * Changes current amount of energy of a pokemon by the value of param i.
@@ -110,13 +122,6 @@ public interface IPokemon {
     int getSex();
 
     /**
-     * Returns current level of a pokemon.
-     *
-     * @return level of a pokemon
-     */
-    int getLvl();
-
-    /**
      * Returns required amount of exp of a pokemon.
      *
      * @return required amount of exp
@@ -136,6 +141,13 @@ public interface IPokemon {
      * @param i change of current exp
      */
     void changeCurrentExp(int i);
+    
+    /**
+     * Get the number of pokemon, that is a direct evolution of this pokemon. Or
+     * 0, if this pokemon doesnt have any further evolution.
+     * @return 
+     */
+    int getEvolution();
 
     /**
      * Returns attack stat of a pokemon.
@@ -151,6 +163,12 @@ public interface IPokemon {
      * @return current state of an attack
      */
     int getCurrentAttack();
+    
+     /**
+     * Get the exp multiplier for determination of attack increase.
+     * @return Attack multiplier
+     */
+    int getAttackMultiplier();
 
     /**
      * Changes current attack stat by the value of an parametr i.
@@ -178,6 +196,12 @@ public interface IPokemon {
      * @return current state of a defense
      */
     int getCurrentDefense();
+    
+     /**
+     * Get the exp multiplier for determination of defense increase.
+     * @return defense multiplier
+     */
+    int getDefenseMultiplier();
 
     /**
      * Changes current defense stat by the value of an parametr i.
@@ -205,6 +229,12 @@ public interface IPokemon {
      * @return current state of a spAttack
      */
     int getCurrentSpAttack();
+    
+     /**
+     * Get the exp multiplier for determination of spAttack increase.
+     * @return spAttack multiplier
+     */
+    int getSpAttackMultiplier();
 
     /**
      * Changes current spAttack stat by the value of an parametr i.
@@ -233,6 +263,12 @@ public interface IPokemon {
      * @return current state of a spDefense
      */
     int getCurrentSpDefense();
+    
+     /**
+     * Get the exp multiplier for determination of spDefense increase.
+     * @return spDefense multiplier
+     */
+    int getSpDefenseMultiplier();
 
     /**
      * Changes current spDefense stat by the value of an parametr i.
@@ -261,6 +297,12 @@ public interface IPokemon {
      * @return current state of a speed
      */
     int getCurrentSpeed();
+    
+     /**
+     * Get the exp multiplier for determination of speed increase.
+     * @return speed multiplier
+     */
+    int getSpeedMultiplier();
 
     /**
      * Changes current speed stat by the value of an parametr i.
@@ -288,6 +330,12 @@ public interface IPokemon {
      * @return current state of a accuracy
      */
     int getCurrentAccuracy();
+    
+     /**
+     * Get the exp multiplier for determination of accuracy increase.
+     * @return accuracy multiplier
+     */
+    int getAccuracyMultiplier();
 
     /**
      * Changes current accuracy stat by the value of an parametr i.
@@ -316,6 +364,12 @@ public interface IPokemon {
      * @return current state of a evasiveness
      */
     int getCurrentEvasiveness();
+    
+     /**
+     * Get the exp multiplier for determination of evasiveness increase.
+     * @return evasiveness multiplier
+     */
+    int getEvasivenessMultiplier();
 
     /**
      * Changes current evasiveness stat by the value of an parametr i.
@@ -352,4 +406,5 @@ public interface IPokemon {
      * @return array of moves.
      */
     IMove[] getMoves();
+    
 }
