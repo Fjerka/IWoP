@@ -45,6 +45,11 @@ public interface IMove {
      * @return effect
      */
     IEffect getEffect();
+    /**
+     * Get the AP (action points) cost of the move.
+     * @return AP cost
+     */
+    int getAPCost();
     
     
 }

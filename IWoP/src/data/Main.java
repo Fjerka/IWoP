@@ -13,16 +13,16 @@ import view.textBased.*;
 
 /**
  *
- * 
+ *
  * @author Stefan
  */
 public class Main {
+
     public static void main(String[] args) {
-        
-        IPokemon[] pokemons = new IPokemon[6];
-        pokemons[0]=new Pokemon("Bulbasaur", 1, 28, 4, 120, 4, 23, Constants.PKMN_MALE, 3000, 15, 3, 20, 5, 20, 5, 12, 4, 10, 2, 53, 5, 34, 3, 2, null);
+
         IPlayer[] players = new IPlayer[1];
-        players[0]= new Player(pokemons);
+        players[0] = new Player("Pokusny Simpanz", Constants.PLAYER_MALE, 1, 8, null, null);
+        players[0].getPartyPokemon()[0] = new Pokemon("Bulbasaur", 1, 28, 4, 120, 4, 23, Constants.PKMN_MALE, 3000, 15, 3, 20, 5, 20, 5, 12, 4, 10, 2, 53, 5, 34, 3, 2, null);
         Game g = new Game(players);
         View v = new View(g);
         ControllerScanner c = new ControllerScanner(g, v);

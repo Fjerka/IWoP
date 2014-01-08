@@ -12,6 +12,8 @@ import data.interfaces.IMove;
  * @author Stefan
  */
 public class Move implements IMove{
+    
+    int mainStat, secondaryStat, energyCost, HPCost, APCost;
 
     @Override
     public int getMainStat() {
@@ -45,6 +47,11 @@ public class Move implements IMove{
 
     @Override
     public IEffect getEffect() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getAPCost() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

@@ -7,7 +7,7 @@ import data.interfaces.IPokemon;
 public class Pokemon implements IPokemon {
 
     String name;
-    int number, maxHp, hp, hpMultiplier, maxEnergy, energy, energyMultiplier, love,
+    int number, maxHp, hp, hpMultiplier, maxEnergy, energy, energyMultiplier, maxAp, ap, love,
             sex, exp, currentExp, attack, currentAttack, attackMultiplier, defense,
             currentDefense, defenseMultiplier, spAttack, currentSpAttack, spAttackMultiplier,
             spDefense, currentSpDefense, spDefenseMultiplier, speed, currentSpeed,
@@ -21,6 +21,8 @@ public class Pokemon implements IPokemon {
         this.maxHp = maxHp;
         this.hp = maxHp;
         this.hpMultiplier = hpMultiplier;
+        maxAp = 20;
+        this.ap = maxAp;
         this.maxEnergy = maxEnergy;
         this.energy = maxEnergy;
         this.energyMultiplier = energyMultiplier;
@@ -80,7 +82,7 @@ public class Pokemon implements IPokemon {
 
     @Override
     public void changeHP(int i) {
-        hp += i;
+        hp = (hp + i >= 0) ? hp + i : 0;
         if (hp > maxHp) {
             hp = maxHp;
         }
@@ -108,7 +110,7 @@ public class Pokemon implements IPokemon {
 
     @Override
     public void changeEnergy(int i) {
-        energy += i;
+        energy = (energy + i >= 0) ? energy + i : 0;
         if (energy > maxEnergy) {
             energy = maxEnergy;
         }
@@ -143,7 +145,7 @@ public class Pokemon implements IPokemon {
 
     @Override
     public void changeLove(int i) {
-        love += i;
+        love = (love + i >= 0) ? love + i : 0;
     }
 
     @Override
@@ -191,7 +193,7 @@ public class Pokemon implements IPokemon {
 
     @Override
     public void changeCurrentAttack(int i) {
-        currentAttack += i;
+       currentAttack = (currentAttack + i >= 0) ? currentAttack + i : 0;
     }
 
     @Override
@@ -216,7 +218,7 @@ public class Pokemon implements IPokemon {
 
     @Override
     public void changeCurrentDefense(int i) {
-        currentDefense += i;
+        currentDefense = (currentDefense + i >= 0) ? currentDefense + i : 0;
     }
 
     @Override
@@ -241,7 +243,7 @@ public class Pokemon implements IPokemon {
 
     @Override
     public void changeCurrentSpAttack(int i) {
-        currentSpAttack += i;
+        currentSpAttack = (currentSpAttack + i >= 0) ? currentSpAttack + i : 0;
     }
 
     @Override
@@ -266,7 +268,7 @@ public class Pokemon implements IPokemon {
 
     @Override
     public void changeCurrentSpDefense(int i) {
-        currentSpDefense += i;
+       currentSpDefense = (currentSpDefense + i >= 0) ? currentSpDefense + i : 0;
     }
 
     @Override
@@ -291,7 +293,7 @@ public class Pokemon implements IPokemon {
 
     @Override
     public void changeCurrentSpeed(int i) {
-        currentSpeed += i;
+        currentSpeed = (currentSpeed + i >= 0) ? currentSpeed + i : 0;
     }
 
     @Override
@@ -316,7 +318,7 @@ public class Pokemon implements IPokemon {
 
     @Override
     public void changeCurrentAccuracy(int i) {
-        currentAccuracy += i;
+        currentAccuracy = (currentAccuracy + i >= 0) ? currentAccuracy + i : 0;
     }
 
     @Override
@@ -341,7 +343,7 @@ public class Pokemon implements IPokemon {
 
     @Override
     public void changeCurrentEvasiveness(int i) {
-        currentEvasiveness += i;
+        currentEvasiveness = (currentEvasiveness + i >= 0) ? currentEvasiveness + i : 0;
     }
 
     @Override
@@ -362,5 +364,20 @@ public class Pokemon implements IPokemon {
     @Override
     public IMove[] getMoves() {
         return moves;
+    }
+
+    @Override
+    public int getAP() {
+        return ap;
+    }
+
+    @Override
+    public void resetAP() {
+        ap = maxAp;
+    }
+
+    @Override
+    public void changeAP(int i) {
+        ap = (ap + i >= 0) ? ap + i : 0;
     }
 }

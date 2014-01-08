@@ -37,6 +37,7 @@ public class ControllerScanner {
                 return;
             case "no":
                 v.printEnd();
+                System.exit(0);
                 return;
             default:
                 v.printErrorInput();
@@ -53,6 +54,7 @@ public class ControllerScanner {
 
             case 2:
                 v.printEnd();
+                System.exit(0);
                 return;
             default:
                 v.printErrorInput();

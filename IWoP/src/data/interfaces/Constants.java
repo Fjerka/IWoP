@@ -37,4 +37,12 @@ public final class Constants {
     public static final int MOVE_DAR = 15;
     public static final int MOVE_STE = 16;
     public static final int MOVE_FAI = 17;
+    public static final int TRAINER_DEFEATED = 0;
+    public static final int TRAINER_NOT_DEFEATED = 1;
+    public static final int PLAYER_MALE = 0;
+    public static final int PLAYER_FEMALE = 0;
+    public static final int PLAYER_SKILL_POINTS_MODIFIER = 2;
+    public static final double PLAYER_REQUIRED_EXP_MODIFIER = 1.25;
+    public static final int PLAYER_REQUIRED_EXP_INIT = 100;
+    public static final int PLAYER_MAX_AP_INIT = 5;
 }

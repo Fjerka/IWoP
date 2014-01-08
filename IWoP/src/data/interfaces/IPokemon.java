@@ -101,6 +101,24 @@ public interface IPokemon {
     int getState();
 
     /**
+     * Returns current value of AP.
+     * @return current value of AP
+     */
+    int getAP();
+   /**
+     * Changes current amount of AP of a pokemon by the value of param i.
+     * Current AP can never be higher then maximal AP.
+     *
+     * @param i changes current energy
+     */
+    public void changeAP(int i);
+    
+    /**
+     * Resert value of AP to its original value.
+     */
+    void resetAP();
+    
+    /**
      * Retunrs current attitude of a pokemon towards its trainer.
      *
      * @return love

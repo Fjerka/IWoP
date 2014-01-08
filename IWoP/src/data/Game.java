@@ -34,15 +34,15 @@ public class Game {
         return players[i];
     }
 
-    public IPokemon getPlayersPKMN(int iPlayer, int iPKMN) {
-        if (iPlayer >= 0 && iPlayer < players.length) {
-            return players[iPlayer].getPartyPokemon(iPKMN);
+    public IPokemon getPlayersPKMN(int Player, int PKMN) {
+        if (Player >= 0 && Player < players.length) {
+            return players[Player].getPartyPokemon()[PKMN];
         } else {
             return null;
         }
     }
 
-    public IPokemon getCurrentPlayersPKMN(int iPKMN) {
-        return players[currentPlayer].getPartyPokemon(iPKMN);
+    public IPokemon getCurrentPlayersPKMN(int PKMN) {
+        return players[currentPlayer].getPartyPokemon()[PKMN];
     }
 }
