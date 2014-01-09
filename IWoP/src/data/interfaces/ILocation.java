@@ -10,4 +10,13 @@ package data.interfaces;
  */
 public interface ILocation {
     
+    int getId();
+    
+    String getName();
+    
+    ILocation[] getNeighbours();
+    
+    int[] getWildPokemons();
+    
+    int getBiom();
 }

@@ -19,14 +19,14 @@ public class ViewPokemon{
             return;
         }
         String sex;
-        switch (p.getSex()) {
+        switch (p.getGender()) {
             case Constants.PKMN_MALE:
                 sex = "male";
                 break;
             case Constants.PKMN_FEMALE:
                 sex = "female";
                 break;
-            case Constants.PKMN_NO_SEX:
+            case Constants.PKMN_GENDERLESS:
                 sex = "non";
                 break;
             default:
@@ -40,14 +40,14 @@ public class ViewPokemon{
             return;
         }
         String sex, state;
-        switch (p.getSex()) {
+        switch (p.getGender()) {
             case Constants.PKMN_MALE:
                 sex = "male";
                 break;
             case Constants.PKMN_FEMALE:
                 sex = "female";
                 break;
-            case Constants.PKMN_NO_SEX:
+            case Constants.PKMN_GENDERLESS:
                 sex = "non";
                 break;
             default:
@@ -81,7 +81,7 @@ public class ViewPokemon{
         System.out.printf("%-10s %4s %6s   %-8s %4s %6s%n","","","Multi.","","","Multi.");
         System.out.printf("%-10s %4d %3d   %-11s %4d %3d%n","Attack",p.getAttack(),p.getAttackMultiplier(),"Speed",p.getSpeed(),p.getSpeedMultiplier());
         System.out.printf("%-10s %4d %3d   %-11s %4d %3d%n","Defense",p.getDefense(),p.getDefenseMultiplier(),"Accuracy",p.getAccuracy(),p.getAccuracyMultiplier());
-        System.out.printf("%-10s %4d %3d   %-11s %4d %3d%n","spAttack",p.getSpAttack(),p.getSpAttackMultiplier(),"Evasiveness",p.getEvasiveness(),p.getEvasiveness());
+        System.out.printf("%-10s %4d %3d   %-11s %4d %3d%n","spAttack",p.getSpAttack(),p.getSpAttackMultiplier(),"Evasiveness",p.getEvasiveness(),p.getEvasivenessMultiplier());
         System.out.printf("%-10s %4d %3d%n","spDefense",p.getSpDefense(),p.getSpDefenseMultiplier());
     }
 }

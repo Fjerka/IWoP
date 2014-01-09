@@ -169,4 +169,9 @@ public class Player implements IPlayer {
     public ArrayList<IPokemon> getStoredPokemon() {
         return storedPokemon;
     }
+
+    @Override
+    public void moveToNextLocation(int toLocation) {
+        location = location.getNeighbours()[toLocation % location.getNeighbours().length];
+    }
 }

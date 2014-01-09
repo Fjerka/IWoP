@@ -149,4 +149,10 @@ public interface IPlayer {
      * @return storedPokemon
      */
     ArrayList<IPokemon> getStoredPokemon();
+    
+    /**
+     * Moves the player to the neighbouring location of given index (from the array of neighbours) from currnet location.
+     * @param toLocation index of the neighbouring location
+     */
+    void moveToNextLocation(int toLocation);
 }

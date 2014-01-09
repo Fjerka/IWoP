@@ -38,8 +38,13 @@ public class View {
     public void printMenu() {
         System.out.println("");
         System.out.println("Chose one from the following by writing respective number:");
-        System.out.printf("%2d) Check your party.%n", 1);
-        System.out.printf("%2d) End game.%n", 2);
+        int i = 1;
+        while (i <= g.getCurrnetPlayer().getLocation().getNeighbours().length) {
+            System.out.printf("%2d) Move to: %s.%n", i, g.getCurrnetPlayer().getLocation().getNeighbours()[i - 1].getName());
+            i++;
+        }
+        System.out.printf("%2d) Check your party.%n", i);
+        System.out.printf("%2d) End game.%n", ++i);
     }
 
     public void printParty() {
@@ -57,5 +62,10 @@ public class View {
         System.out.println("");
         System.out.println("Chose one from the following by writing respective number:");
         System.out.printf("%2d) Return to party.%n", 1);
+    }
+    
+    public void printMoveToNextLocation() {
+        System.out.println("");
+        System.out.println("You have moved to the " + g.getCurrnetPlayer().getLocation().getName() + ".");
     }
 }

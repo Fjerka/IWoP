@@ -18,12 +18,40 @@ public interface IPokemon {
     String getName();
 
     /**
-     * Returns number of pokemon according to a pokedex number of pokemon (Kanto
+     * Returns the nickname of the pokemon.
+     *
+     * @return nickname
+     */
+    String getNickname();
+
+    /**
+     * Returns id of pokemon according to a pokedex number of pokemon (Kanto
      * pokedex).
      *
-     * @return number of a pokemon
+     * @return id of a pokemon
      */
-    int getNumber();
+    int getId();
+
+    /**
+     * Returns the gender of the pokemon.
+     *
+     * @return gender
+     */
+    int getGender();
+
+    /**
+     * Returns true if the pokemon is shiny.
+     *
+     * @return shiny
+     */
+    boolean isShiny();
+
+    /**
+     * Returns the nature of the pokemon.
+     *
+     * @return nature
+     */
+    INature getNature();
 
     /**
      * Get maximal hit points of a pokemon.
@@ -38,9 +66,10 @@ public interface IPokemon {
      * @return current hit points
      */
     int getHP();
-    
+
     /**
      * Get the exp multiplier for determination of HP increase.
+     *
      * @return HP multiplier
      */
     int getHPMultiplier();
@@ -72,9 +101,10 @@ public interface IPokemon {
      * @return current amount of an energy
      */
     int getEnergy();
-    
-     /**
+
+    /**
      * Get the exp multiplier for determination of Energy increase.
+     *
      * @return Energy multiplier
      */
     int getEnergyMultiplier();
@@ -102,22 +132,24 @@ public interface IPokemon {
 
     /**
      * Returns current value of AP.
+     *
      * @return current value of AP
      */
     int getAP();
-   /**
+
+    /**
      * Changes current amount of AP of a pokemon by the value of param i.
      * Current AP can never be higher then maximal AP.
      *
      * @param i changes current energy
      */
     public void changeAP(int i);
-    
+
     /**
      * Resert value of AP to its original value.
      */
     void resetAP();
-    
+
     /**
      * Retunrs current attitude of a pokemon towards its trainer.
      *
@@ -131,13 +163,6 @@ public interface IPokemon {
      * @param i changes current love
      */
     void changeLove(int i);
-
-    /**
-     * Returns sex of a pokemon.
-     *
-     * @return
-     */
-    int getSex();
 
     /**
      * Returns required amount of exp of a pokemon.
@@ -159,13 +184,33 @@ public interface IPokemon {
      * @param i change of current exp
      */
     void changeCurrentExp(int i);
-    
+
     /**
      * Get the number of pokemon, that is a direct evolution of this pokemon. Or
      * 0, if this pokemon doesnt have any further evolution.
-     * @return 
+     *
+     * @return
      */
     int getEvolution();
+
+    /**
+     * Returns the level of the pokemon.
+     *
+     * @return level
+     */
+    int getLevel();
+
+    /**
+     * Increases the level of the pokemon by 1.
+     */
+    void increaseLevel();
+
+    /**
+     * Returns number of skill points.
+     *
+     * @return number of skill points
+     */
+    int getSkillPoints();
 
     /**
      * Returns attack stat of a pokemon.
@@ -181,9 +226,10 @@ public interface IPokemon {
      * @return current state of an attack
      */
     int getCurrentAttack();
-    
-     /**
+
+    /**
      * Get the exp multiplier for determination of attack increase.
+     *
      * @return Attack multiplier
      */
     int getAttackMultiplier();
@@ -214,9 +260,10 @@ public interface IPokemon {
      * @return current state of a defense
      */
     int getCurrentDefense();
-    
-     /**
+
+    /**
      * Get the exp multiplier for determination of defense increase.
+     *
      * @return defense multiplier
      */
     int getDefenseMultiplier();
@@ -247,9 +294,10 @@ public interface IPokemon {
      * @return current state of a spAttack
      */
     int getCurrentSpAttack();
-    
-     /**
+
+    /**
      * Get the exp multiplier for determination of spAttack increase.
+     *
      * @return spAttack multiplier
      */
     int getSpAttackMultiplier();
@@ -281,9 +329,10 @@ public interface IPokemon {
      * @return current state of a spDefense
      */
     int getCurrentSpDefense();
-    
-     /**
+
+    /**
      * Get the exp multiplier for determination of spDefense increase.
+     *
      * @return spDefense multiplier
      */
     int getSpDefenseMultiplier();
@@ -315,9 +364,10 @@ public interface IPokemon {
      * @return current state of a speed
      */
     int getCurrentSpeed();
-    
-     /**
+
+    /**
      * Get the exp multiplier for determination of speed increase.
+     *
      * @return speed multiplier
      */
     int getSpeedMultiplier();
@@ -348,9 +398,10 @@ public interface IPokemon {
      * @return current state of a accuracy
      */
     int getCurrentAccuracy();
-    
-     /**
+
+    /**
      * Get the exp multiplier for determination of accuracy increase.
+     *
      * @return accuracy multiplier
      */
     int getAccuracyMultiplier();
@@ -382,9 +433,10 @@ public interface IPokemon {
      * @return current state of a evasiveness
      */
     int getCurrentEvasiveness();
-    
-     /**
+
+    /**
      * Get the exp multiplier for determination of evasiveness increase.
+     *
      * @return evasiveness multiplier
      */
     int getEvasivenessMultiplier();
@@ -424,5 +476,12 @@ public interface IPokemon {
      * @return array of moves.
      */
     IMove[] getMoves();
-    
+
+    /**
+     * Returns an array representing status effects, which are currently
+     * affecting the pokemon.
+     *
+     * @return array of status effects
+     */
+    boolean[] getStatusEffects();
 }

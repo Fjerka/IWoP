@@ -7,8 +7,10 @@ package data;
 import conroller.textBased.*;
 import data.interfaces.Constants;
 import data.interfaces.IMove;
+import data.interfaces.INature;
 import data.interfaces.IPlayer;
 import data.interfaces.IPokemon;
+import data.interfaces.IWorld;
 import view.textBased.*;
 
 /**
@@ -20,9 +22,25 @@ public class Main {
 
     public static void main(String[] args) {
 
+        IWorld world = new World(0, "World", 4);
+        world.getLocations()[0] = new Location(0, "Hometown", 3, Constants.LOCATION_CITY);
+        world.getLocations()[1] = new Location(1, "Pokemon Center", 1, Constants.LOCATION_BUILDING);
+        world.getLocations()[2] = new Location(2, "Route", 2, Constants.LOCATION_PLAIN);
+        world.getLocations()[3] = new Location(3, "Forest", 2, Constants.LOCATION_FOREST);
+        world.getLocations()[0].getNeighbours()[0] = world.getLocations()[1];
+        world.getLocations()[0].getNeighbours()[1] = world.getLocations()[2];
+        world.getLocations()[0].getNeighbours()[2] = world.getLocations()[3];
+        world.getLocations()[1].getNeighbours()[0] = world.getLocations()[0];
+        world.getLocations()[2].getNeighbours()[0] = world.getLocations()[0];
+        world.getLocations()[2].getNeighbours()[1] = world.getLocations()[3];
+        world.getLocations()[3].getNeighbours()[0] = world.getLocations()[0];
+        world.getLocations()[3].getNeighbours()[1] = world.getLocations()[2];
+        
+        final INature hardy = new Nature("Hardy", 100, 100, 100, 100, 100, 100, 100, 100, 100, 100);
+        
         IPlayer[] players = new IPlayer[1];
-        players[0] = new Player("Pokusny Simpanz", Constants.PLAYER_MALE, 1, 8, null, null);
-        players[0].getPartyPokemon()[0] = new Pokemon("Bulbasaur", 1, 28, 4, 120, 4, 23, Constants.PKMN_MALE, 3000, 15, 3, 20, 5, 20, 5, 12, 4, 10, 2, 53, 5, 34, 3, 2, null);
+        players[0] = new Player("Pokusny Simpanz", Constants.PLAYER_MALE, 1, 8, world.getLocations()[0], world);
+        players[0].getPartyPokemon()[0] = new Pokemon("Bulbasaur", "Bulby", 1, 20, 4, 100, 5, 5, Constants.PKMN_MALE, 10, 6, 12, 7, 13, 8, 13, 7, 4, 3, 80, 10, 50, 5, 2, null, false, hardy);
         Game g = new Game(players);
         View v = new View(g);
         ControllerScanner c = new ControllerScanner(g, v);

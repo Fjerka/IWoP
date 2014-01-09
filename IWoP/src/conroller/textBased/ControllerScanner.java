@@ -46,19 +46,26 @@ public class ControllerScanner {
     }
 
     public void GameMenu(int i) {
-        switch (i) {
-            case 1:
-                v.printParty();
-                runPartyMenu(sc.nextInt());
-                return;
-
-            case 2:
-                v.printEnd();
-                System.exit(0);
-                return;
-            default:
-                v.printErrorInput();
-                GameMenu(sc.nextInt());
+        int numOfNeighbours = g.getCurrnetPlayer().getLocation().getNeighbours().length;
+        if (i > numOfNeighbours) {
+            switch (i - numOfNeighbours) {
+                case 1:
+                    v.printParty();
+                    runPartyMenu(sc.nextInt());
+                    return;
+                case 2:
+                    v.printEnd();
+                    System.exit(0);
+                    return;
+                default:
+                    v.printErrorInput();
+                    GameMenu(sc.nextInt());
+            }
+        } else {
+            g.getCurrnetPlayer().moveToNextLocation(i - 1);
+            v.printMoveToNextLocation();
+            v.printMenu();
+            GameMenu(sc.nextInt());
         }
     }
 
@@ -91,9 +98,9 @@ public class ControllerScanner {
                 runPartyMenu(sc.nextInt());
         }
     }
-    
-    public void runPKMN(int index, int i){
-        switch (i){
+
+    public void runPKMN(int index, int i) {
+        switch (i) {
             case 1:
                 v.printParty();
                 runPartyMenu(sc.nextInt());

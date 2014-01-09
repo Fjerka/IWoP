@@ -2,34 +2,36 @@ package data;
 
 import data.interfaces.Constants;
 import data.interfaces.IMove;
+import data.interfaces.INature;
 import data.interfaces.IPokemon;
 
 public class Pokemon implements IPokemon {
 
-    String name;
-    int number, maxHp, hp, hpMultiplier, maxEnergy, energy, energyMultiplier, maxAp, ap, love,
-            sex, exp, currentExp, attack, currentAttack, attackMultiplier, defense,
+    String name, nickname;
+    int id, maxHp, hp, hpMultiplier, maxEnergy, energy, energyMultiplier, maxAp, ap, love,
+            gender, exp, currentExp, level, skillPoints, attack, currentAttack, attackMultiplier, defense,
             currentDefense, defenseMultiplier, spAttack, currentSpAttack, spAttackMultiplier,
             spDefense, currentSpDefense, spDefenseMultiplier, speed, currentSpeed,
             speedMultiplier, accuracy, currentAccuracy, accuracyMultiplier,
             evasiveness, currentEvasiveness, evasivenessMultiplier, evolution;
     IMove[] moves;
+    boolean shiny;
+    INature nature;
+    boolean[] statusEffects;
 
-    public Pokemon(String name, int number, int maxHp, int hpMultiplier, int maxEnergy, int energyMultiplier, int love, int sex, int exp, int attack, int attackMultiplier, int defense, int defenseMultiplier, int spAttack, int spAttackMultiplier, int spDefense, int spDefenseMultiplier, int speed, int speedMultiplier, int accuracy, int accuracyMultiplier, int evasiveness, int evasivenessMultiplier, int evolution, IMove[] moves) {
+    public Pokemon(String name, String nickname, int id, int maxHp, int hpMultiplier, int maxEnergy, int energyMultiplier, int maxAp, int gender, int attack, int attackMultiplier, int defense, int defenseMultiplier, int spAttack, int spAttackMultiplier, int spDefense, int spDefenseMultiplier, int speed, int speedMultiplier, int accuracy, int accuracyMultiplier, int evasiveness, int evasivenessMultiplier, int evolution, IMove[] moves, boolean shiny, INature nature) {
         this.name = name;
-        this.number = number;
+        this.nickname = nickname;
+        this.id = id;
         this.maxHp = maxHp;
         this.hp = maxHp;
         this.hpMultiplier = hpMultiplier;
-        maxAp = 20;
-        this.ap = maxAp;
         this.maxEnergy = maxEnergy;
         this.energy = maxEnergy;
         this.energyMultiplier = energyMultiplier;
-        this.love = love;
-        this.sex = sex;
-        this.exp = exp;
-        this.currentExp = 0;
+        this.maxAp = maxAp;
+        this.ap = maxAp;
+        this.gender = gender;
         this.attack = attack;
         this.currentAttack = attack;
         this.attackMultiplier = attackMultiplier;
@@ -53,6 +55,13 @@ public class Pokemon implements IPokemon {
         this.evasivenessMultiplier = evasivenessMultiplier;
         this.evolution = evolution;
         this.moves = moves;
+        this.shiny = shiny;
+        this.nature = nature;
+        this.exp = Constants.PKMN_START_EXP;
+        this.currentExp = 0;
+        this.level = 1;
+        this.love = 0;
+        this.statusEffects = new boolean[6];
     }
 
     @Override
@@ -61,8 +70,8 @@ public class Pokemon implements IPokemon {
     }
 
     @Override
-    public int getNumber() {
-        return number;
+    public int getId() {
+        return id;
     }
 
     @Override
@@ -149,8 +158,8 @@ public class Pokemon implements IPokemon {
     }
 
     @Override
-    public int getSex() {
-        return sex;
+    public int getGender() {
+        return gender;
     }
 
     @Override
@@ -379,5 +388,41 @@ public class Pokemon implements IPokemon {
     @Override
     public void changeAP(int i) {
         ap = (ap + i >= 0) ? ap + i : 0;
+    }
+
+    @Override
+    public String getNickname() {
+        return nickname;
+    }
+
+    @Override
+    public boolean isShiny() {
+        return shiny;
+    }
+
+    @Override
+    public INature getNature() {
+        return nature;
+    }
+
+    @Override
+    public int getLevel() {
+        return level;
+    }
+
+    @Override
+    public void increaseLevel() {
+        level += 1;
+        exp = (int) (exp * Constants.PKMN_REQUIRED_EXP_MODIFIER);
+    }
+
+    @Override
+    public int getSkillPoints() {
+        return skillPoints;
+    }
+
+    @Override
+    public boolean[] getStatusEffects() {
+        return statusEffects;
     }
 }
