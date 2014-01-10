@@ -9,47 +9,125 @@ package data.interfaces;
  * @author Stefan
  */
 public interface IMove {
-    
+
     /**
-     * Get the main stat of the move.
-     * @return main stat
+     * Return id of the move;
+     *
+     * @return id
      */
-    int getMainStat();
+    int getId();
+
     /**
-     * Get the secondary stat of the move.
-     * @return secondary stat
+     * Return name of the move.
+     *
+     * @return name
      */
-    int getSecondaryStat();
+    String getName();
+
     /**
-     * Get the energy cost of the move.
+     * Return description of the move.
+     *
+     * @return description
+     */
+    String getDescription();
+
+    /**
+     * Return hit point cost of the move.
+     *
+     * @return hit point cost
+     */
+    int getHPCost();
+
+    /**
+     * Return energy cost of the move.
+     *
      * @return energy cost
      */
     int getEnergyCost();
+
     /**
-     * Get the HP cost of the move.
-     * @return HP cost
-     */
-    int getHPCost();
-    /**
-     * Get the type of the move.
-     * @return type of the move
-     */
-    int getType();
-    /**
-     * Get the duration of the move (usually 1 to 2 turns) .
-     * @return duration of the move
-     */
-    int getDuration();
-    /**
-     * Get the effect of the move.
-     * @return effect
-     */
-    IEffect getEffect();
-    /**
-     * Get the AP (action points) cost of the move.
-     * @return AP cost
+     * Return action point cost of the move.
+     *
+     * @return action point cost
      */
     int getAPCost();
-    
-    
+
+    /**
+     * Return category of the move (special attack and defense, physical attack
+     * and defense, status and unique).
+     *
+     * @return category
+     */
+    int getCategory();
+
+    /**
+     * Return type of the move.
+     *
+     * @return type
+     */
+    int getType();
+
+    /**
+     * Return attack power of the attack.
+     *
+     * @return
+     */
+    int getPower();
+
+    /**
+     * Return defense rating of the move.
+     *
+     * @return defense rating
+     */
+    int getDefenseRating();
+
+    /**
+     * Return accuracy of the attack.
+     *
+     * @return accarucy
+     */
+    int getAccuracy();
+
+    /**
+     * Get critical hit ratio of the move.
+     *
+     * @return critical hit ratio
+     */
+    int getCriticalHitRatio();
+
+    /**
+     * Get priority of the attack (integer from -7 to 7).
+     *
+     * @return priority
+     */
+    int getPriority();
+
+    /**
+     * Returns true if by using this move opposing pokemons make contact, false
+     * otherwise.
+     *
+     * @return contact
+     */
+    boolean getContact();
+
+    /**
+     * Return effect which is done to the target pokemon.
+     *
+     * @return effect
+     */
+    IEffect getTargetEffect();
+
+    /**
+     * Return effect which is done to itself.
+     *
+     * @return effect
+     */
+    IEffect getSelfEffect();
+
+    /**
+     * Return effect which is done to the environment.
+     *
+     * @return effect
+     */
+    IEffect getBattleEffect();
 }

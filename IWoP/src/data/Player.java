@@ -46,7 +46,7 @@ public class Player implements IPlayer {
         this.location = location;
         this.world = world;
         this.trainingMethods = new ITrainingMethod[3];
-        this.inventory = null;
+        this.inventory = new Inventory(10000, 1000);
         this.skills = new ISkill[3];
         this.partyPokemon = new IPokemon[6];
         this.storedPokemon = null;

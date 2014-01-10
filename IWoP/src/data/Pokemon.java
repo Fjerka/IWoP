@@ -19,7 +19,7 @@ public class Pokemon implements IPokemon {
     INature nature;
     boolean[] statusEffects;
 
-    public Pokemon(String name, String nickname, int id, int maxHp, int hpMultiplier, int maxEnergy, int energyMultiplier, int maxAp, int gender, int attack, int attackMultiplier, int defense, int defenseMultiplier, int spAttack, int spAttackMultiplier, int spDefense, int spDefenseMultiplier, int speed, int speedMultiplier, int accuracy, int accuracyMultiplier, int evasiveness, int evasivenessMultiplier, int evolution, IMove[] moves, boolean shiny, INature nature) {
+    public Pokemon(String name, String nickname, int id, int maxHp, int hpMultiplier, int maxEnergy, int energyMultiplier, int maxAp, int gender, int attack, int attackMultiplier, int defense, int defenseMultiplier, int spAttack, int spAttackMultiplier, int spDefense, int spDefenseMultiplier, int speed, int speedMultiplier, int accuracy, int accuracyMultiplier, int evasiveness, int evasivenessMultiplier, int evolution, boolean shiny, INature nature) {
         this.name = name;
         this.nickname = nickname;
         this.id = id;
@@ -54,14 +54,14 @@ public class Pokemon implements IPokemon {
         this.currentEvasiveness = evasiveness;
         this.evasivenessMultiplier = evasivenessMultiplier;
         this.evolution = evolution;
-        this.moves = moves;
+        this.moves = new IMove[6];
         this.shiny = shiny;
         this.nature = nature;
         this.exp = Constants.PKMN_START_EXP;
         this.currentExp = 0;
         this.level = 1;
         this.love = 0;
-        this.statusEffects = new boolean[6];
+        this.statusEffects = new boolean[7];
     }
 
     @Override
