@@ -4,7 +4,12 @@
  */
 package conroller.textBased;
 
+import data.Battle;
 import data.Game;
+import data.Pokemon;
+import data.abstracts.ATrainer;
+import data.interfaces.Constants;
+import data.trainers.WildEncounter;
 import java.util.Scanner;
 import view.textBased.*;
 
@@ -54,6 +59,12 @@ public class ControllerScanner {
                     runPartyMenu(sc.nextInt());
                     return;
                 case 2:
+                    ATrainer wild = new WildEncounter("Wild Bulbasaur", g.getCurrnetPlayer().getLocation(), g.getCurrnetPlayer().getWorld());
+                    wild.getPartyPokemons()[0] = new Pokemon("Bulbasaur", "Bulby", 1, 20, 4, 100, 5, 5, Constants.PKMN_MALE, 10, 6, 12, 7, 13, 8, 13, 7, 4, 3, 80, 10, 50, 5, 2, false, null);
+                    g.setBattle(new Battle(g.getCurrnetPlayer(), wild, 1));
+                    v.printBeginnigOfBattle(g.getCurrnetPlayer().getName(), wild.getName(), 5);
+                    return;
+                case 3:
                     v.printEnd();
                     System.exit(0);
                     return;

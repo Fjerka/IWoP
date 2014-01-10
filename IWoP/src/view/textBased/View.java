@@ -44,6 +44,7 @@ public class View {
             i++;
         }
         System.out.printf("%2d) Check your party.%n", i);
+        System.out.printf("%2d) Encounter a wild pokemon.%n", ++i);
         System.out.printf("%2d) End game.%n", ++i);
     }
 
@@ -67,5 +68,15 @@ public class View {
     public void printMoveToNextLocation() {
         System.out.println("");
         System.out.println("You have moved to the " + g.getCurrnetPlayer().getLocation().getName() + ".");
+    }
+    
+    public void printBeginnigOfBattle(String player, String trainer, int number) {
+        System.out.println("");
+        System.out.print(player + " has chalenged " + trainer + " to a battle!");
+        if (number > 1) {
+            System.out.println(" Trainers may use " + number + " pokemons.");
+        } else {
+            System.out.println(" Trainers may use 1 pokemon.");
+        }
     }
 }

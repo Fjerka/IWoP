@@ -59,11 +59,6 @@ public interface IPlayer {
     int getAP();
 
     /**
-     * Change current amount of AP by param i.
-     *
-     * @param i change of AP
-     */
-    /**
      * Change current amount of AP by param i and return true if it was succesful or false otherwise.
      * @param i change of AP
      * @return succes

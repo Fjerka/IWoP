@@ -1,0 +1,12 @@
+move - pririty, contact, protect, magic coat, snatch, opakovani (fury swipes), ditto?, smeargle - sketch?, bitva na vice pokemonu
+kategorie - normalni utocici nebo upravuje staty (attack, spattack), uravuje staty pokemona - svoje nebo nepritele (attack, paralyze), utok trvajici nekolik kol (sunny day), specialni (tranform, sketch, pursuit, counter - osetrit pres switch?), opakujici se utok (fury attack)
+battle conditions!
+battle - weather condition, na vice pokemonu?
+ability - pri vyvoji podle poradi jak jsou ulozeny v db
+1. dela neco pri kontaktu s pokemonen s urcitou pravdepodobnosti(poison touch)
+2. zacne nejaka battle condition na omezeny pocet kol (drizzle)
+3. navysuje postupne stat pokemona po urcitem poctu kol (speed boost)
+4. nelze pouzit neco (kritical hit - battle armor, 1-hit KO - sturdy, self destruct - damp)
+5. obrana pred statusy (limber)
+6. navysuje stat pokud je nejaka battle condition (sand veil)
+7. navysuje stat pokud je na nej zautoceno typem utoku (volt absorb)
