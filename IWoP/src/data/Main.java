@@ -46,6 +46,11 @@ public class Main {
         players[0] = new Player(Constants.PLAYER_MALE, "Pokusny Simpanz", 0, 1, world.getLocations()[0], world, 10000, 0);
         players[0].getPartyPokemons()[0] = new Pokemon("Bulbasaur", "Bulby", 1, 20, 4, 100, 5, 5, Constants.PKMN_MALE, 10, 6, 12, 7, 13, 8, 13, 7, 4, 3, 80, 10, 50, 5, 2, false, hardy);
         players[0].getPartyPokemons()[0].getMoves()[0] = tackle;
+        players[0].getPartyPokemons()[1] = new Pokemon("Charmander", "Char", 4, 20, 4, 100, 5, 5, Constants.PKMN_MALE, 10, 6, 12, 7, 13, 8, 13, 7, 4, 3, 80, 10, 50, 5, 2, false, hardy);
+        players[0].getPartyPokemons()[1].getMoves()[0] = tackle;
+        players[0].getPartyPokemons()[2] = new Pokemon("Squirtle", "Bubly", 7, 20, 4, 100, 5, 5, Constants.PKMN_MALE, 10, 6, 12, 7, 13, 8, 13, 7, 4, 3, 80, 10, 50, 5, 2, false, hardy);
+        players[0].getPartyPokemons()[2].getMoves()[0] = tackle;
+        
         Game g = new Game(players);
         View v = new View(g);
         ControllerScanner c = new ControllerScanner(g, v);

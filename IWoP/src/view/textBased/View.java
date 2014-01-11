@@ -5,6 +5,7 @@
 package view.textBased;
 
 import data.*;
+import data.abstracts.ATrainer;
 
 /**
  *
@@ -14,10 +15,12 @@ public class View {
 
     Game g;
     ViewPokemon pkmn;
+    ViewBattle battle;
 
     public View(Game g) {
         this.g = g;
         this.pkmn = new ViewPokemon();
+        this.battle = new ViewBattle();
     }
 
     public void printBeginning() {
@@ -48,18 +51,18 @@ public class View {
         System.out.printf("%2d) End game.%n", ++i);
     }
 
-    public void printParty() {
+    public void printParty(ATrainer trainer) {
         System.out.println("");
         System.out.println("Chose one from the following by writing respective number:");
         for (int i = 0; i < 6; i++) {
-            pkmn.printBasicInfo(g.getCurrentPlayersPKMN(i), i + 1);
+            pkmn.printBasicInfo(trainer.getPartyPokemons()[i], i + 1);
         }
         System.out.printf("%2d) Return to main menu.%n", 7);
     }
     
-    public void printPKMN(int i){
+    public void printPKMN(ATrainer trainer, int i){
         System.out.println("");
-        pkmn.printAdvancedInfo(g.getCurrentPlayersPKMN(i-1));
+        pkmn.printAdvancedInfo(trainer.getPartyPokemons()[i-1]);
         System.out.println("");
         System.out.println("Chose one from the following by writing respective number:");
         System.out.printf("%2d) Return to party.%n", 1);
@@ -78,5 +81,11 @@ public class View {
         } else {
             System.out.println(" Trainers may use 1 pokemon.");
         }
+    }
+    
+    public void printPickAPokemonForBattle(ATrainer trainer) {
+        System.out.println("");
+        battle.pickAPokemonForBattle();
+        printParty(trainer);
     }
 }

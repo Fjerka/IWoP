@@ -100,4 +100,18 @@ public class Player extends ATrainer {
     public IMove attack(IPokemon attacker, IPokemon defender) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public boolean selectPokemonForBattle(IPokemon[] pokemons, int selection) {
+        for (int i = 0; i < pokemons.length; i++) {
+            if (pokemons[i] == super.getPartyPokemons()[selection]) {
+                return false;
+            }
+            if (pokemons[i] == null) {
+                pokemons[i] = super.getPartyPokemons()[selection];
+                return true;
+            }
+        }
+        return false;
+    }
 }

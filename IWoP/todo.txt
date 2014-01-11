@@ -1,3 +1,4 @@
+maximalni pocet hracu = 5
 move - pririty, contact, protect, magic coat, snatch, opakovani (fury swipes), ditto?, smeargle - sketch?, bitva na vice pokemonu
 kategorie - normalni utocici nebo upravuje staty (attack, spattack), uravuje staty pokemona - svoje nebo nepritele (attack, paralyze), utok trvajici nekolik kol (sunny day), specialni (tranform, sketch, pursuit, counter - osetrit pres switch?), opakujici se utok (fury attack)
 battle conditions!

@@ -215,7 +215,9 @@ public abstract class ATrainer {
     public int getNumberOfPokemonInParty() {
         int number = 0;
         for (int i = 0; i < partyPokemons.length; i++) {
-            number = (partyPokemons[i] != null)? number++: number;
+            if (partyPokemons[i] != null) {
+                number++;
+            }
         }
         return number;
     }
@@ -333,8 +335,16 @@ public abstract class ATrainer {
     }
     
     /**
-     * 
+     * Returns attack which will pokemon use.
      * @return selected attack
      */
     public abstract IMove attack(IPokemon attacker, IPokemon defender);
+    
+    /**
+     * Method for selection of pokemons for battle, if the pokemon is not selected yet, returns true.
+     * @param pokemons
+     * @param selection
+     * @return true if the pokemon is not selected
+     */
+    public abstract boolean selectPokemonForBattle(IPokemon[] pokemons, int selection);
 }

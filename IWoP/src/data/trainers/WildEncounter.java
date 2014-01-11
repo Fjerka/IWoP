@@ -19,7 +19,7 @@ public class WildEncounter extends ATrainer{
 
     public WildEncounter(String name, ILocation location, IWorld world) {
         super.setName(name);
-        super.setId(-1);
+        super.setId(5);
         super.setLevel(1);
         super.setMaxAp(Constants.PLAYER_MAX_AP_INIT);
         super.setAp(super.getMaxAp());
@@ -31,5 +31,11 @@ public class WildEncounter extends ATrainer{
     @Override
     public IMove attack(IPokemon attacker, IPokemon defender) {
         return attacker.getMove(0);
+    }
+
+    @Override
+    public boolean selectPokemonForBattle(IPokemon[] pokemons, int selection) {
+        pokemons[0] = super.getPartyPokemons()[0];
+        return true;
     }
 }

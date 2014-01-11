@@ -40,5 +40,24 @@ public interface IBattle {
      * Returns deffending trainer.
      * @return deffending trainer
      */
-    ATrainer getDeffender();
+    ATrainer getDefender();
+    
+    /**
+     * Returns the array of attackers pokemons
+     * @return attackers pokmemons
+     */
+    IPokemon[] getAttackerPokemons();
+    
+    /**
+     * Returns the array of defenders pokemons.
+     * @return defenders pokemons
+     */
+    IPokemon[] getDefenderPokemons();
+    
+    /**
+     * Checkes if all pokemons for battle are selected.
+     * @param pokemons
+     * @return true if all pokemons are selected
+     */
+    boolean areAllPokemonsSelected(IPokemon[] pokemons);
 }
