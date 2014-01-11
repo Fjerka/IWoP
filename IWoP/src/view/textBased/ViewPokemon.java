@@ -32,7 +32,7 @@ public class ViewPokemon{
             default:
                 sex = "ERROR";
         }
-        System.out.printf("%2d) %-15s %6s%n", i, p.getName(), sex);
+        System.out.printf("%2d) %-15s %6s%n", i, p.getNickname(), sex);
     }
 
     public void printAdvancedInfo(IPokemon p) {
@@ -75,7 +75,7 @@ public class ViewPokemon{
             default:
                 state = "ERROR";
         }
-        System.out.printf("%-15s %6s%n", p.getName(), sex);
+        System.out.printf("%-15s %15s %6s %-10s%n",p.getNickname(), p.getName(), sex, p.getNature().getName());
         System.out.printf("Exp. %8d/%-8d Attitude: %3d%n",p.getCurrentExp(),p.getExp(), p.getLove());
         System.out.printf("HP: %5d/%-5d Energy: %5d/%-5d it is %-10s%n",p.getHP(),p.getMaxHP(),p.getEnergy(),p.getMaxEnrgy(),state);
         System.out.printf("%-10s %4s %6s   %-8s %4s %6s%n","","","Multi.","","","Multi.");

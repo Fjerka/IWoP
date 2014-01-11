@@ -139,7 +139,6 @@ public class ControllerScanner {
             v.printPickAPokemonForBattle(g.getBattle().getDefender());
             g.getCurrnetPlayer().selectPokemonForBattle(g.getBattle().getDefenderPokemons(),sc.nextInt() - 1);
         }
-        System.out.println(g.getBattle().getAttackerPokemons()[0].getNickname());
-        System.out.println(g.getBattle().getDefenderPokemons()[0].getNickname());
+        v.printBattleView();
     }
 }

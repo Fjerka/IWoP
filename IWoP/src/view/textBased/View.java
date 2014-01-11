@@ -88,4 +88,9 @@ public class View {
         battle.pickAPokemonForBattle();
         printParty(trainer);
     }
+    
+    public void printBattleView(){
+        System.out.println("");
+        battle.printBattleView(g.getBattle());
+    }
 }

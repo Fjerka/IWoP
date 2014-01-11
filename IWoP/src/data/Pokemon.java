@@ -9,11 +9,11 @@ public class Pokemon implements IPokemon {
 
     String name, nickname;
     int id, maxHp, hp, hpMultiplier, maxEnergy, energy, energyMultiplier, maxAp, ap, love,
-            gender, exp, currentExp, level, skillPoints, attack, currentAttack, attackMultiplier, defense,
-            currentDefense, defenseMultiplier, spAttack, currentSpAttack, spAttackMultiplier,
-            spDefense, currentSpDefense, spDefenseMultiplier, speed, currentSpeed,
-            speedMultiplier, accuracy, currentAccuracy, accuracyMultiplier,
-            evasiveness, currentEvasiveness, evasivenessMultiplier, evolution;
+            gender, exp, currentExp, level, skillPoints, attack, currentAttack, attackMultiplier, accuAttack, defense,
+            currentDefense, defenseMultiplier, accuDefense, spAttack, currentSpAttack, spAttackMultiplier, accuSpAttack,
+            spDefense, currentSpDefense, spDefenseMultiplier, accuSpDefense, speed, currentSpeed,
+            speedMultiplier, accuSpeed, accuracy, currentAccuracy, accuracyMultiplier, accuAccuracy,
+            evasiveness, currentEvasiveness, evasivenessMultiplier, accuEvasiveness, evolution;
     IMove[] moves;
     boolean shiny;
     INature nature;
@@ -202,7 +202,7 @@ public class Pokemon implements IPokemon {
 
     @Override
     public void changeCurrentAttack(int i) {
-       currentAttack = (currentAttack + i >= 0) ? currentAttack + i : 0;
+        currentAttack = (currentAttack + i >= 0) ? currentAttack + i : 0;
     }
 
     @Override
@@ -277,7 +277,7 @@ public class Pokemon implements IPokemon {
 
     @Override
     public void changeCurrentSpDefense(int i) {
-       currentSpDefense = (currentSpDefense + i >= 0) ? currentSpDefense + i : 0;
+        currentSpDefense = (currentSpDefense + i >= 0) ? currentSpDefense + i : 0;
     }
 
     @Override
@@ -424,5 +424,40 @@ public class Pokemon implements IPokemon {
     @Override
     public boolean[] getStatusEffects() {
         return statusEffects;
+    }
+
+    @Override
+    public int getAccumulatedAttack() {
+        return accuAttack;
+    }
+
+    @Override
+    public int getAccumulatedDefense() {
+        return accuDefense;
+    }
+
+    @Override
+    public int getAccumulatedSpAttack() {
+        return accuSpAttack;
+    }
+
+    @Override
+    public int getAccumulatedSpDefense() {
+        return accuSpDefense;
+    }
+
+    @Override
+    public int getAccumulatedSpeed() {
+        return accuSpeed;
+    }
+
+    @Override
+    public int getAccumulatedAccuracy() {
+        return accuAccuracy;
+    }
+
+    @Override
+    public int getAccumulatedEvasiveness() {
+        return accuEvasiveness;
     }
 }

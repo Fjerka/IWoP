@@ -247,6 +247,14 @@ public interface IPokemon {
     void resetCurrentAttack();
 
     /**
+     * Returns accumulated information about used moves, which were using attack
+     * as one of its stats.
+     *
+     * @return accumulated attack
+     */
+    int getAccumulatedAttack();
+
+    /**
      * Returns defense stat of a pokemon.
      *
      * @return defense
@@ -279,6 +287,14 @@ public interface IPokemon {
      * Resets current defense value on a value of a normal defense of a pokemon.
      */
     void resetCurrentDefense();
+
+    /**
+     * Returns accumulated information about used moves, which were using
+     * defense as one of its stats.
+     *
+     * @return accumulated defense
+     */
+    int getAccumulatedDefense();
 
     /**
      * Returns spAttack stat of a pokemon.
@@ -316,6 +332,14 @@ public interface IPokemon {
     void resetCurrentSpAttack();
 
     /**
+     * Returns accumulated information about used moves, which were using
+     * special attack as one of its stats.
+     *
+     * @return accumulated special attack
+     */
+    int getAccumulatedSpAttack();
+
+    /**
      * Returns spDefense stat of a pokemon.
      *
      * @return spDefense
@@ -351,6 +375,14 @@ public interface IPokemon {
     void resetCurrentSpDefense();
 
     /**
+     * Returns accumulated information about used moves, which were using
+     * special defense as one of its stats.
+     *
+     * @return accumulated special defense
+     */
+    int getAccumulatedSpDefense();
+
+    /**
      * Returns speed stat of a pokemon.
      *
      * @return speed
@@ -383,6 +415,14 @@ public interface IPokemon {
      * Resets current speed value on a value of a normal speed of a pokemon.
      */
     void resetCurrentSpeed();
+
+    /**
+     * Returns accumulated information about used moves, which were using speed
+     * as one of its stats.
+     *
+     * @return accumulated speed
+     */
+    int getAccumulatedSpeed();
 
     /**
      * Returns accuracy stat of a pokemon.
@@ -420,6 +460,14 @@ public interface IPokemon {
     void resetCurrentAccuracy();
 
     /**
+     * Returns accumulated information about used moves, which were using
+     * accuracy as one of its stats.
+     *
+     * @return accumulated accuracy
+     */
+    int getAccumulatedAccuracy();
+
+    /**
      * Returns evasiveness stat of a pokemon.
      *
      * @return evasiveness
@@ -453,6 +501,14 @@ public interface IPokemon {
      * pokemon.
      */
     void resetCurrentEvasiveness();
+
+    /**
+     * Returns accumulated information about used moves, which were using
+     * evasiveness as one of its stats.
+     *
+     * @return accumulated evasiveness
+     */
+    int getAccumulatedEvasiveness();
 
     /**
      * Returns a move on index i (index >= 0 && 5 >= index).
