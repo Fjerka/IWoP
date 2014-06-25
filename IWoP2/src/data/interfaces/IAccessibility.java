@@ -10,4 +10,6 @@ package data.interfaces;
  */
 public interface IAccessibility {
     
+    public int getMovementPoints();
+    
 }
