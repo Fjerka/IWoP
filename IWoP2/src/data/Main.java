@@ -4,6 +4,9 @@
  */
 package data;
 
+import gui.MainFrame;
+import javax.swing.JFrame;
+
 /**
  *
  * @author Stefan
@@ -15,5 +18,6 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        JFrame frame = new MainFrame();
     }
 }
