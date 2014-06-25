@@ -33,7 +33,7 @@ public class FirstLocationButtonListener implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         view.startMenu.closeFrame();
         view.createMainScreen(game.getActivePlayer().getLocation(), game.getActivePlayer().getX(), game.getActivePlayer().getY());
-        view.mainScreen.addKeyListener(new MapKeyboardListener());
+        view.mainScreen.addKeyListener(new MapKeyboardListener(game, view));
     }
     
 }
