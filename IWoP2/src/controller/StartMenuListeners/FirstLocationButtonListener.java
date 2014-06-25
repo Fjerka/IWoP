@@ -6,6 +6,7 @@
 
 package controller.StartMenuListeners;
 
+import controller.MainScreenListeners.MapKeyboardListener;
 import gui.View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,6 +29,7 @@ public class FirstLocationButtonListener implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         view.startMenu.closeFrame();
         view.createMainScreen();
+        view.mainScreen.addKeyListener(new MapKeyboardListener());
     }
     
 }

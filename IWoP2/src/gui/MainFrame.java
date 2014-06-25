@@ -5,7 +5,6 @@
  */
 package gui;
 
-import data.Location;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import javax.swing.JApplet;
@@ -17,15 +16,12 @@ import javax.swing.JPanel;
  *
  * @author Vera
  */
-public class MainScreen extends JFrame {
+public class MainFrame extends JFrame {
 
-    public MainScreen() {
-    }
-    
-    public void create() {
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setName("IWoP");
-        setSize(150, 100);
+    public MainFrame() {
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setName("IWoP");
+        this.setSize(150, 100);
 
         JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
@@ -39,7 +35,7 @@ public class MainScreen extends JFrame {
         panel.add(button, c);
         //this.getContentPane().add(button);
 
-        JApplet applet = new MapApplet();
+        JApplet applet = new MainApplet();
         applet.init();
         //applet.setSize(100, 100);
         c.weightx = 0.7;
@@ -49,12 +45,8 @@ public class MainScreen extends JFrame {
         panel.add(applet, c);
         //this.getContentPane().add(applet);
 
-        setContentPane(panel);
-        pack();
-        setVisible(true);
-    }
-    
-    public void repaintMap(Location location, int playerX, int playerY) {
-        
+        this.setContentPane(panel);
+        this.pack();
+        this.setVisible(true);
     }
 }

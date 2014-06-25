@@ -21,6 +21,7 @@ public class Controller {
         this.game = game;
         this.view = view;
         createStartMenu();
+        
     }
     
     private void createStartMenu() {

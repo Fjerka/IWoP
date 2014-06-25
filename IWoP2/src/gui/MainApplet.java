@@ -15,9 +15,9 @@ import javax.swing.JApplet;
  *
  * @author Vera
  */
-public class MapApplet extends JApplet{
+public class MainApplet extends JApplet{
     
-    public MapApplet() {
+    public MainApplet() {
     }
     
     @Override

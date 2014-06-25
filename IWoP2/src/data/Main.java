@@ -7,9 +7,7 @@ package data;
 import controller.Controller;
 import data.accessibilities.Grass;
 import data.interfaces.IAccessibility;
-import gui.MainScreen;
 import gui.View;
-import javax.swing.JFrame;
 /**
  *
  * @author Stefan
