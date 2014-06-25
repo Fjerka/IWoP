@@ -28,6 +28,7 @@ public class MainScreen extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setName("IWoP");
         setSize(150, 100);
+        setFocusable(true);
 
         JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
@@ -60,5 +61,9 @@ public class MainScreen extends JFrame {
     public void repaintMap(Location location, int playerX, int playerY) {
         applet.setParameters(location, playerX, playerY);
         applet.repaint();
+    }
+
+    public MapApplet getApplet() {
+        return applet;
     }
 }

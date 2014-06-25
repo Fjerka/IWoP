@@ -27,29 +27,30 @@ public class MapApplet extends JApplet{
     
     @Override
     public void init() {
-        System.out.println("init");
-        //setSize(100, 100);
-        setPreferredSize(new Dimension(100, 100));
-        ///setVisible(true);
-        //(true);
-        //setMinimumSize(new Dimension(100, 100));
+        setPreferredSize(new Dimension(550, 550));
+        setFocusable(true);
     }
     
     @Override
     public void paint(Graphics g) {
         if (location == null || playerX == -1 || playerY == -1) {
             g.setColor(Color.black);
-            g.fillRect(0, 0, 500, 500);
+            g.fillRect(0, 0, 550, 550);
             return;
         }
         for (int i = 0; i < location.getMap().length; i++) {
             for (int j = 0; j < location.getMap()[0].length; j++) {
-                if (i == 1 && j == 0) {
-                    g.setColor(Color.red);
+                if (i == playerX && j == playerY) {
+                    g.setColor(Color.green);
+                    g.fillRect(i * 50, j * 50, 50, 50);
+                    g.setColor(Color.black);
+                    g.fillOval(i * 50 + 2, j * 50 + 2, 46, 46);
                 } else {
                     g.setColor(Color.green);
+                    g.fillRect(i * 50, j * 50, 50, 50);
                 }
-                g.fillRect(i * 50, j * 50, 50, 50);
+                g.setColor(Color.gray);
+                g.drawRect(i * 50, j * 50, 50, 50);
             }
         }
     }
