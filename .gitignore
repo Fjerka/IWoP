@@ -7,3 +7,4 @@
 *.war
 *.ear
 /IWoP2/build/
+/IWoP2/nbproject/
