@@ -54,8 +54,8 @@ public class MapApplet extends JApplet{
                 }
             }
         }
-        g.setColor(Color.black);
-        g.fillOval(252, 252, 46, 46);
+        g.setColor(Color.blue);
+        g.fillOval(255, 255, 40, 40);
     }
     
     public void setParameters(Location location, int playerX, int playerY) {

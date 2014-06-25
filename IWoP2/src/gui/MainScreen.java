@@ -29,6 +29,7 @@ public class MainScreen extends JFrame {
         setName("IWoP");
         setSize(150, 100);
         setFocusable(true);
+        setResizable(false);
 
         JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
