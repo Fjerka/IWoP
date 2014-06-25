@@ -7,6 +7,7 @@
 package gui;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import javax.swing.JApplet;
 
@@ -21,11 +22,18 @@ public class MainApplet extends JApplet{
     
     @Override
     public void init() {
-        setBackground(Color.red);
+        System.out.println("init");
+        //setSize(100, 100);
+        setPreferredSize(new Dimension(100, 100));
+        ///setVisible(true);
+        //(true);
+        //setMinimumSize(new Dimension(100, 100));
     }
     
     @Override
     public void paint(Graphics g) {
-        g.drawRect(100,100,100,100); 
+        System.out.println("paint");
+        g.setColor(Color.red);
+        g.drawRect(100,100,100,100);
     }
 }
