@@ -4,6 +4,7 @@
  */
 package controller;
 
+import controller.StartMenuListeners.FirstLocationButtonListener;
 import data.Game;
 import gui.View;
 
@@ -19,8 +20,12 @@ public class Controller {
     public Controller(Game game, View view) {
         this.game = game;
         this.view = view;
+        createStartMenu();
     }
     
-    
+    private void createStartMenu() {
+        this.view.startMenu.create();
+        this.view.startMenu.getFirst().addActionListener(new FirstLocationButtonListener(view));
+    }
     
 }
