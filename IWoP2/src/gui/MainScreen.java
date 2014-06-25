@@ -18,6 +18,8 @@ import javax.swing.JPanel;
  * @author Vera
  */
 public class MainScreen extends JFrame {
+    
+    private MapApplet applet;
 
     public MainScreen() {
     }
@@ -39,7 +41,7 @@ public class MainScreen extends JFrame {
         panel.add(button, c);
         //this.getContentPane().add(button);
 
-        JApplet applet = new MapApplet();
+        applet = new MapApplet();
         applet.init();
         //applet.setSize(100, 100);
         c.weightx = 0.7;
@@ -55,6 +57,7 @@ public class MainScreen extends JFrame {
     }
     
     public void repaintMap(Location location, int playerX, int playerY) {
-        
+        applet.setParameters(location, playerX, playerY);
+        applet.repaint();
     }
 }
