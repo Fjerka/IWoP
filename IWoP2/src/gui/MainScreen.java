@@ -5,6 +5,7 @@
  */
 package gui;
 
+import data.Location;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import javax.swing.JApplet;
@@ -51,5 +52,9 @@ public class MainScreen extends JFrame {
         setContentPane(panel);
         pack();
         setVisible(true);
+    }
+    
+    public void repaintMap(Location location, int playerX, int playerY) {
+        
     }
 }
