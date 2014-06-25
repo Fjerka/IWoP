@@ -38,21 +38,24 @@ public class MapApplet extends JApplet{
             g.fillRect(0, 0, 550, 550);
             return;
         }
-        for (int i = 0; i < location.getMap().length; i++) {
-            for (int j = 0; j < location.getMap()[0].length; j++) {
-                if (i == playerX && j == playerY) {
-                    g.setColor(Color.green);
-                    g.fillRect(i * 50, j * 50, 50, 50);
+        int x = 0;
+        int y = 0;
+        for  (int i = -5; i <= 5; i++) {
+            for (int j = -5; j <= 5; j++) {
+                if ((playerX + i < 0 || playerY + j < 0) || (playerX + i >= location.getMap().length
+                        || playerY + j >= location.getMap()[0].length)) {
                     g.setColor(Color.black);
-                    g.fillOval(i * 50 + 2, j * 50 + 2, 46, 46);
+                    g.fillRect((i + 5) * 50, (j + 5) * 50, 50, 50);
                 } else {
                     g.setColor(Color.green);
-                    g.fillRect(i * 50, j * 50, 50, 50);
+                    g.fillRect((i + 5) * 50, (j + 5) * 50, 50, 50);
+                    g.setColor(Color.gray);
+                    g.drawRect((i + 5) * 50, (j + 5) * 50, 50, 50);
                 }
-                g.setColor(Color.gray);
-                g.drawRect(i * 50, j * 50, 50, 50);
             }
         }
+        g.setColor(Color.black);
+        g.fillOval(252, 252, 46, 46);
     }
     
     public void setParameters(Location location, int playerX, int playerY) {
