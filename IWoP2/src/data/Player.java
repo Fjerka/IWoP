@@ -70,4 +70,18 @@ public class Player extends Trainer {
             y++;
         }
     }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+    
+    
 }

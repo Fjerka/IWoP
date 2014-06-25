@@ -5,6 +5,7 @@
 package gui;
 
 import data.Game;
+import data.Location;
 
 /**
  *
@@ -21,8 +22,8 @@ public class View {
         this.startMenu = new StartMenu();
     }
     
-    public void createMainScreen(){
+    public void createMainScreen(Location location, int playerX, int playerY){
         mainScreen = new MainScreen();
-        mainScreen.create();
+        mainScreen.create(location, playerX, playerY);
     }
 }

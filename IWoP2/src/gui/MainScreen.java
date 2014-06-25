@@ -24,7 +24,7 @@ public class MainScreen extends JFrame {
     public MainScreen() {
     }
     
-    public void create() {
+    public void create(Location location, int playerX, int playerY) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setName("IWoP");
         setSize(150, 100);
@@ -54,6 +54,7 @@ public class MainScreen extends JFrame {
         setContentPane(panel);
         pack();
         setVisible(true);
+        repaintMap(location, playerX, playerY);
     }
     
     public void repaintMap(Location location, int playerX, int playerY) {

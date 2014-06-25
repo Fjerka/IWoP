@@ -7,6 +7,8 @@
 package controller.StartMenuListeners;
 
 import controller.MainScreenListeners.MapKeyboardListener;
+import data.Game;
+import data.Location;
 import gui.View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,15 +22,17 @@ import javax.swing.JFrame;
 public class FirstLocationButtonListener implements ActionListener{
     
     private View view;
+    private Game game;
     
-    public FirstLocationButtonListener(View view) {
+    public FirstLocationButtonListener(View view, Game game) {
         this.view = view;
+        this.game = game;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         view.startMenu.closeFrame();
-        view.createMainScreen();
+        view.createMainScreen(game.getActivePlayer().getLocation(), game.getActivePlayer().getX(), game.getActivePlayer().getY());
         view.mainScreen.addKeyListener(new MapKeyboardListener());
     }
     

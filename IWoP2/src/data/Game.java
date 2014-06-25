@@ -19,6 +19,11 @@ public class Game {
         this.worlds = worlds;
         this.activePlayer = players[0];
     }
+
+    public Player getActivePlayer() {
+        return activePlayer;
+    }
+    
     
     
     

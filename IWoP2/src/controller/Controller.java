@@ -26,7 +26,7 @@ public class Controller {
     
     private void createStartMenu() {
         this.view.startMenu.create();
-        this.view.startMenu.getFirst().addActionListener(new FirstLocationButtonListener(view));
+        this.view.startMenu.getFirst().addActionListener(new FirstLocationButtonListener(view, game));
     }
     
 }
