@@ -44,29 +44,29 @@ public class Player extends Trainer {
     }
 
     public void moveLeft() {
-        if (x > 0 && location.getAccessibility()[x - 1][y].getMovementPoints() <= currentMovementPoints) {
-            currentMovementPoints -= location.getAccessibility()[x - 1][y].getMovementPoints();
+        if (x > 0 && location.getMap()[x - 1][y].getMovementPoints() <= currentMovementPoints) {
+            currentMovementPoints -= location.getMap()[x - 1][y].getMovementPoints();
             x--;
         }
     }
 
     public void moveRight() {
-        if (x < location.getAccessibility().length - 1 && location.getAccessibility()[x + 1][y].getMovementPoints() <= currentMovementPoints) {
-            currentMovementPoints -= location.getAccessibility()[x + 1][y].getMovementPoints();
+        if (x < location.getMap().length - 1 && location.getMap()[x + 1][y].getMovementPoints() <= currentMovementPoints) {
+            currentMovementPoints -= location.getMap()[x + 1][y].getMovementPoints();
             x++;
         }
     }
 
     public void moveUp() {
-        if (y > 0 && location.getAccessibility()[x][y - 1].getMovementPoints() <= currentMovementPoints) {
-            currentMovementPoints -= location.getAccessibility()[x][y - 1].getMovementPoints();
+        if (y > 0 && location.getMap()[x][y - 1].getMovementPoints() <= currentMovementPoints) {
+            currentMovementPoints -= location.getMap()[x][y - 1].getMovementPoints();
             y--;
         }
     }
 
     public void moveDown() {
-        if (y < location.getAccessibility()[x].length - 1 && location.getAccessibility()[x][y + 1].getMovementPoints() <= currentMovementPoints) {
-            currentMovementPoints -= location.getAccessibility()[x][y + 1].getMovementPoints();
+        if (y < location.getMap()[x].length - 1 && location.getMap()[x][y + 1].getMovementPoints() <= currentMovementPoints) {
+            currentMovementPoints -= location.getMap()[x][y + 1].getMovementPoints();
             y++;
         }
     }

@@ -4,7 +4,7 @@
  */
 package data;
 
-import data.interfaces.IAccessibility;
+import data.interfaces.IMap;
 
 /**
  *
@@ -13,21 +13,15 @@ import data.interfaces.IAccessibility;
 public class Location {
     
     private String name;
-    private int[][] map;
-    private IAccessibility[][] accessibilityMap;
+    private IMap[][] map;
 
-    public Location(String name, int[][] map, IAccessibility[][] accessibilityMap) {
+    public Location(String name, IMap[][] map) {
         this.name = name;
         this.map = map;
-        this.accessibilityMap = accessibilityMap;
     }
-
-   public int[][] getMap(){
-       return map;
-   }
    
-   public IAccessibility[][] getAccessibility(){
-       return accessibilityMap;
+   public IMap[][] getMap(){
+       return map;
    }
     
 }

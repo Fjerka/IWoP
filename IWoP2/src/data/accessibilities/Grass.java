@@ -5,13 +5,13 @@
 package data.accessibilities;
 
 import data.Location;
-import data.interfaces.IAccessibility;
+import data.interfaces.IMap;
 
 /**
  *
  * @author Stefan
  */
-public class Grass implements IAccessibility{
+public class Grass implements IMap{
 
     @Override
     public int getMovementPoints() {

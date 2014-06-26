@@ -47,18 +47,18 @@ public class MapApplet extends JApplet {
         boolean lineFromMap = false;
         for (int i = -10; i <= 10; i++) {
             for (int j = -10; j <= 10; j++) {
-                if ((playerX + i < 0 || playerY + j < 0) || (playerX + i >= location.getAccessibility().length
-                        || playerY + j >= location.getAccessibility()[0].length)) {
+                if ((playerX + i < 0 || playerY + j < 0) || (playerX + i >= location.getMap().length
+                        || playerY + j >= location.getMap()[0].length)) {
                     g.setColor(Color.black);
                     g.fillRect((i + 10) * 30, (j + 10) * 30, 30, 30);
                 } else {
                     lineFromMap = true;
-                    BufferedImage image = loadedImages.get(location.getAccessibility()[x][y].getID());
+                    BufferedImage image = loadedImages.get(location.getMap()[x][y].getID());
                     if (image == null) {
                         try {
                             System.out.println("neni loaded");
-                            image = ImageIO.read(new File(location.getAccessibility()[x][y].getTileFile()));
-                            loadedImages.put(location.getAccessibility()[x][y].getID(), image);
+                            image = ImageIO.read(new File(location.getMap()[x][y].getTileFile()));
+                            loadedImages.put(location.getMap()[x][y].getID(), image);
                             g.drawImage(image, (i + 10) * 30, (j + 10) * 30, null);
                         } catch (IOException e) {
                             g.setColor(Color.black);
