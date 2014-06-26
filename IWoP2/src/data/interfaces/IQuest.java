@@ -10,6 +10,6 @@ package data.interfaces;
  */
 public interface IQuest {
     
-    public int getID();
+    public double getID();
     
 }

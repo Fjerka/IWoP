@@ -5,7 +5,7 @@
 package data;
 
 import controller.Controller;
-import data.accessibilities.Grass;
+import data.map.Grass;
 import data.interfaces.IMap;
 import gui.View;
 

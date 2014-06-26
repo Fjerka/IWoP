@@ -34,6 +34,18 @@ public class Story {
     public List<IQuest> getActiveMainQuests(World world){
         return quests.get(world).get(0);
     }
+    
+    public List<IQuest> getCompletedMainQuests(World world){
+        return quests.get(world).get(1);
+    }
+    
+    public List<IQuest> getActiveSideQuests(World world){
+        return quests.get(world).get(2);
+    }
+    
+    public List<IQuest> getCompletedSideQuests(World world){
+        return quests.get(world).get(3);
+    }
 
     
 }
