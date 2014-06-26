@@ -9,6 +9,9 @@ import data.map.grass.Grass;
 import data.interfaces.IMap;
 import data.quests.SimpleQuest;
 import gui.View;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,31 +23,27 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        IMap[][] access = {{new Grass(), new Grass(), new Grass(), new Grass(), new Grass(), new Grass()},
+        /*IMap[][] access = {{new Grass(), new Grass(), new Grass(), new Grass(), new Grass(), new Grass()},
             {new Grass(), new Grass(), new Grass(), new Grass(), new Grass(), new Grass()},
             {new Grass(), new Grass(), new Grass(), new Grass(), new Grass(), new Grass()},
             {new Grass(), new Grass(), new Grass(), new Grass(), new Grass(), new Grass()},
             {new Grass(), new Grass(), new Grass(), new Grass(), new Grass(), new Grass()},
             {new Grass(), new Grass(), new Grass(), new Grass(), new Grass(), new Grass()}};
-        Location[] locations = {new Location("lokace 1", access)};
-        World[] worlds = {new World("New World", locations)};
+        Location[] locations = {new Location("lokace 1", access)};*/
+        World[] worlds = {new World("New World", 1)};
+        try {
+            worlds[0].loadNewLocation("location1.txt", "Crossroads");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
         Story story = new Story(worlds);
         story.addMainQuest(worlds[0], new SimpleQuest(1));
         Player[] players = {new Player("Ash", "Ketchum", 0, true, 0, 100, 100, 100,
-                100, 100, 100, 100, 100, 100, null, null, null, story, worlds[0],
-                locations[0], 0, 0, null, null, null)};
+                10000, 10000, 100, 100, 100, 100, null, null, null, story, worlds[0],
+                worlds[0].getLoactions()[0], 1, 1, null, null, null)};
 
         Game game = new Game(players, worlds);
         View view = new View(game);
         Controller controller = new Controller(game, view);
     }
 }
-/*
- "Ash", "Ketchum",0, true,  0, 100,
-            100,100, 100,100,
-            100, 100, 100, 100,
-            null, null,
-            null, story, worlds[0], locations[0], 0, 0,
-            null, null, null
- 
- */
