@@ -32,19 +32,23 @@ public class MapKeyboardListener implements KeyListener {
         switch (e.getKeyCode()){
             case KeyEvent.VK_W:
                 game.getActivePlayer().moveUp();
-                view.mainScreen.repaintMap(game.getActivePlayer().getLocation(), game.getActivePlayer().getX(), game.getActivePlayer().getY());
+                view.mainScreen.repaintMap(game.getActivePlayer().getLocation(), game.getActivePlayer().getX(), 
+                        game.getActivePlayer().getY());
                 break;
             case KeyEvent.VK_A:
                 game.getActivePlayer().moveLeft();
-                view.mainScreen.repaintMap(game.getActivePlayer().getLocation(), game.getActivePlayer().getX(), game.getActivePlayer().getY());
+                view.mainScreen.repaintMap(game.getActivePlayer().getLocation(), game.getActivePlayer().getX(), 
+                        game.getActivePlayer().getY());
                 break;
             case KeyEvent.VK_S:
                 game.getActivePlayer().moveDown();
-                view.mainScreen.repaintMap(game.getActivePlayer().getLocation(), game.getActivePlayer().getX(), game.getActivePlayer().getY());
+                view.mainScreen.repaintMap(game.getActivePlayer().getLocation(), game.getActivePlayer().getX(), 
+                        game.getActivePlayer().getY());
                 break;
             case KeyEvent.VK_D:
                 game.getActivePlayer().moveRight();
-                view.mainScreen.repaintMap(game.getActivePlayer().getLocation(), game.getActivePlayer().getX(), game.getActivePlayer().getY());
+                view.mainScreen.repaintMap(game.getActivePlayer().getLocation(), game.getActivePlayer().getX(), 
+                        game.getActivePlayer().getY());
                 break;
             default:
                 break;
