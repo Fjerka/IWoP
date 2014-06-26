@@ -1,0 +1,44 @@
+GRASS:                    11****
+bush                        0101
+deepGrass                   0102
+grass                       0103
+rock                        0104
+leafyTreetop                0105
+leafyTreeTrunk              0106
+
+dirtRoad                    0201
+eastDirtRoad                0202
+northDirtRoad               0203
+southDirtRoad               0204
+westDirtRoad                0205
+northEastDirtRoad           0206
+northWestDirtRoad           0207
+southEastDirtRoad           0208
+southWestDirtRoad           0209
+northEastDirtRoadCross      0210
+northWestDirtRoadCross      0211
+southEastDirtRoadCross      0212
+southWestDirtRoadCross      0213
+
+river                       0301
+northRiverside              0302
+eastRiverside               0303
+southRiverside              0304
+westRiverside               0305
+northEastRiverside          0306
+northWestRiverside          0307
+southEastRiverside          0308
+southWestRiverside          0309
+northEastRiversideCross     0310
+northWestRiversideCross     0311
+southEastRiversideCross     0312
+southWestRiversideCross     0313
+
+
+
+
+
+
+
+
+

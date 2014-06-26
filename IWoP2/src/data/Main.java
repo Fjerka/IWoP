@@ -5,17 +5,10 @@
 package data;
 
 import controller.Controller;
-import data.interfaces.IBadge;
-import data.interfaces.IInventory;
-import data.map.Grass;
+import data.map.grass.Grass;
 import data.interfaces.IMap;
-import data.interfaces.IPokemon;
-import data.interfaces.ISkill;
-import data.interfaces.ITrainingMethod;
 import data.quests.SimpleQuest;
 import gui.View;
-import java.util.List;
-import java.util.Map;
 
 /**
  *

@@ -14,6 +14,11 @@ import data.World;
  */
 public interface IMap {
     
+    /**
+     * 6 digit number, first 2 digits represent background category, last 4 
+     * digits represent actual tile in this category
+     * @return 
+     */
     public int getID();
     
     public String getTileFile();
