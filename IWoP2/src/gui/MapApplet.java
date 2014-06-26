@@ -42,8 +42,8 @@ public class MapApplet extends JApplet{
         int y = 0;
         for  (int i = -10; i <= 10; i++) {
             for (int j = -10; j <= 10; j++) {
-                if ((playerX + i < 0 || playerY + j < 0) || (playerX + i >= location.getMap().length
-                        || playerY + j >= location.getMap()[0].length)) {
+                if ((playerX + i < 0 || playerY + j < 0) || (playerX + i >= location.getAccessibility().length
+                        || playerY + j >= location.getAccessibility()[0].length)) {
                     g.setColor(Color.black);
                     g.fillRect((i + 10) * 30, (j + 10) * 30, 30, 30);
                 } else {
