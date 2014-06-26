@@ -66,6 +66,7 @@ public class MapApplet extends JApplet {
                             loadedImages.put(location.getMap()[x][y].getID(), image);
                             g.drawImage(image, (i + 10) * 30, (j + 10) * 30, null);
                         } catch (IOException e) {
+                            System.out.println(location.getMap()[x][y].getTileFile());
                             g.setColor(Color.black);
                             g.fillRect((i + 10) * 30, (j + 10) * 30, 30, 30);
                         }

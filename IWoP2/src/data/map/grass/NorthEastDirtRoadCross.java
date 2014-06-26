@@ -22,7 +22,7 @@ public class NorthEastDirtRoadCross implements IMap{
 
     @Override
     public String getTileFile() {
-        return "images/tiles/grass/eastDirtRoadCross.jpg";
+        return "images/tiles/grass/northEastDirtRoadCross.jpg";
     }
 
     @Override
