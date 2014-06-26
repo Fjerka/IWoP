@@ -5,6 +5,8 @@
 package data.map;
 
 import data.Location;
+import data.Story;
+import data.World;
 import data.interfaces.IMap;
 
 /**
@@ -12,6 +14,14 @@ import data.interfaces.IMap;
  * @author Stefan
  */
 public class Grass implements IMap{
+    
+    private double accessibility;
+
+    public Grass() {
+        accessibility = 0;
+    }
+    
+    
 
     @Override
     public int getMovementPoints() {
@@ -30,22 +40,22 @@ public class Grass implements IMap{
 
     @Override
     public Location getNewLocation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
     @Override
     public int getNewLocationX() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return -1;
     }
 
     @Override
     public int getNewLocationY() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return -1;
     }
 
     @Override
-    public boolean isAccessible() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean isAccessible(Story story, World world) {
+        return accessibility <= story.getStoryLine(world);
     }
     
 }

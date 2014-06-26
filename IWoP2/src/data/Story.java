@@ -26,8 +26,6 @@ public class Story {
             quests.put(world, new HashMap<Integer, List<IQuest>>());
             quests.get(world).put(0, new ArrayList<IQuest>());
             quests.get(world).put(1, new ArrayList<IQuest>());
-            quests.get(world).put(2, new ArrayList<IQuest>());
-            quests.get(world).put(3, new ArrayList<IQuest>());
         }
     }
     
@@ -35,17 +33,26 @@ public class Story {
         return quests.get(world).get(0);
     }
     
-    public List<IQuest> getCompletedMainQuests(World world){
+    public List<IQuest> getActiveSideQuests(World world){
         return quests.get(world).get(1);
     }
     
-    public List<IQuest> getActiveSideQuests(World world){
-        return quests.get(world).get(2);
+    public double getStoryLine(World world){
+        List<IQuest> active =  getActiveMainQuests(world);
+        double max = 0;
+        for (IQuest iQuest : active) {
+            if (max < iQuest.getID()){
+                max = iQuest.getID();
+            }
+        }
+        return max;
+    }
+  
+    public void addMainQuest(World world, IQuest quest){
+        quests.get(world).get(0).add(quest);
     }
     
-    public List<IQuest> getCompletedSideQuests(World world){
-        return quests.get(world).get(3);
+    public void addSideQuest(World world, IQuest quest){
+        quests.get(world).get(1).add(quest);
     }
-
-    
 }

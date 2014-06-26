@@ -12,4 +12,6 @@ public interface IQuest {
     
     public double getID();
     
+    public boolean isCompleted();
+    
 }
