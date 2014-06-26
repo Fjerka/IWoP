@@ -23,5 +23,4 @@ public class Location {
    public IMap[][] getMap(){
        return map;
    }
-    
 }

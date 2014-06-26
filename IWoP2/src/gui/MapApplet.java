@@ -65,12 +65,8 @@ public class MapApplet extends JApplet {
                             g.fillRect((i + 10) * 30, (j + 10) * 30, 30, 30);
                         }
                     } else {
-                        System.out.println("loadedImages");
                         g.drawImage(image, (i + 10) * 30, (j + 10) * 30, null);
                     }
-
-                    //g.setColor(Color.green);
-                    //g.fillRect((i + 10) * 30, (j + 10) * 30, 30, 30);
                     g.setColor(Color.gray);
                     g.drawRect((i + 10) * 30, (j + 10) * 30, 30, 30);
                     y++;
@@ -88,6 +84,9 @@ public class MapApplet extends JApplet {
 
     public void setParameters(Location location, int playerX, int playerY) {
         this.location = location;
+        if (!this.location.equals(location)) {
+            loadedImages.clear();
+        }
         this.playerX = playerX;
         this.playerY = playerY;
     }
