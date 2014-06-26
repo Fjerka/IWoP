@@ -13,6 +13,11 @@ import data.interfaces.IQuest;
 public class SimpleQuest implements IQuest{
     
     private double id;
+    private String name;
+    private String description;
+
+    public SimpleQuest() {
+    }
 
     public SimpleQuest(double id) {
         this.id = id;
