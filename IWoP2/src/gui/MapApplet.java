@@ -27,7 +27,7 @@ public class MapApplet extends JApplet{
     
     @Override
     public void init() {
-        setPreferredSize(new Dimension(550, 550));
+        setPreferredSize(new Dimension(630, 630));
         setFocusable(true);
     }
     
@@ -35,27 +35,27 @@ public class MapApplet extends JApplet{
     public void paint(Graphics g) {
         if (location == null || playerX == -1 || playerY == -1) {
             g.setColor(Color.black);
-            g.fillRect(0, 0, 550, 550);
+            g.fillRect(0, 0, 630, 630);
             return;
         }
         int x = 0;
         int y = 0;
-        for  (int i = -5; i <= 5; i++) {
-            for (int j = -5; j <= 5; j++) {
+        for  (int i = -10; i <= 10; i++) {
+            for (int j = -10; j <= 10; j++) {
                 if ((playerX + i < 0 || playerY + j < 0) || (playerX + i >= location.getMap().length
                         || playerY + j >= location.getMap()[0].length)) {
                     g.setColor(Color.black);
-                    g.fillRect((i + 5) * 50, (j + 5) * 50, 50, 50);
+                    g.fillRect((i + 10) * 30, (j + 10) * 30, 30, 30);
                 } else {
                     g.setColor(Color.green);
-                    g.fillRect((i + 5) * 50, (j + 5) * 50, 50, 50);
+                    g.fillRect((i + 10) * 30, (j + 10) * 30, 30, 30);
                     g.setColor(Color.gray);
-                    g.drawRect((i + 5) * 50, (j + 5) * 50, 50, 50);
+                    g.drawRect((i + 10) * 30, (j + 10) * 30, 30, 30);
                 }
             }
         }
         g.setColor(Color.blue);
-        g.fillOval(255, 255, 40, 40);
+        g.fillOval(302, 302, 26, 26);
     }
     
     public void setParameters(Location location, int playerX, int playerY) {
