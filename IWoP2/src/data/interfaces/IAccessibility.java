@@ -10,6 +10,8 @@ package data.interfaces;
  */
 public interface IAccessibility {
     
+    public String getTileFile();
+    
     public int getMovementPoints();
     
 }

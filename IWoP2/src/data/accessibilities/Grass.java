@@ -16,5 +16,10 @@ public class Grass implements IAccessibility{
     public int getMovementPoints() {
         return 1;
     }
+
+    @Override
+    public String getTileFile() {
+        return "images/tiles/grass.jpg";
+    }
     
 }
