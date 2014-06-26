@@ -12,6 +12,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import javax.imageio.ImageIO;
 import javax.swing.JApplet;
 
@@ -41,6 +42,9 @@ public class MapApplet extends JApplet {
             g.fillRect(0, 0, 630, 630);
             return;
         }
+        int x = 0, y = 0;
+        boolean lineFromMap = false;
+        HashMap<Integer, BufferedImage> loadedImages = new HashMap();
         for (int i = -10; i <= 10; i++) {
             for (int j = -10; j <= 10; j++) {
                 if ((playerX + i < 0 || playerY + j < 0) || (playerX + i >= location.getAccessibility().length
@@ -48,9 +52,10 @@ public class MapApplet extends JApplet {
                     g.setColor(Color.black);
                     g.fillRect((i + 10) * 30, (j + 10) * 30, 30, 30);
                 } else {
-                    BufferedImage image = null;
+                    lineFromMap = true;
+                    BufferedImage image = loadedImages.get(location.getAccessibility()[x][y]);
                     try {
-                        image = ImageIO.read(new File(location.getAccessibility()[i + 10][j + 10].getTileFile()));
+                        image = ImageIO.read(new File(location.getAccessibility()[x][y].getTileFile()));
                         g.drawImage(image, (i + 10) * 30, (j + 10) * 30, null);
                     } catch (IOException e) {
                         g.setColor(Color.black);
@@ -60,8 +65,14 @@ public class MapApplet extends JApplet {
                     //g.fillRect((i + 10) * 30, (j + 10) * 30, 30, 30);
                     g.setColor(Color.gray);
                     g.drawRect((i + 10) * 30, (j + 10) * 30, 30, 30);
+                    y++;
                 }
             }
+            if (lineFromMap) {
+                x++;
+            }
+            lineFromMap = false;
+            y = 0;
         }
         g.setColor(Color.blue);
         g.fillOval(302, 302, 26, 26);
