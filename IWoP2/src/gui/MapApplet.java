@@ -43,7 +43,13 @@ public class MapApplet extends JApplet {
             g.fillRect(0, 0, 630, 630);
             return;
         }
-        int x = 0, y = 0;
+        int x = -10 + playerX, y = -10 + playerY;
+        if (x < 0) {
+            x = 0;
+        }
+        if (y < 0) {
+            y = 0;
+        }
         boolean lineFromMap = false;
         for (int i = -10; i <= 10; i++) {
             for (int j = -10; j <= 10; j++) {
@@ -75,7 +81,10 @@ public class MapApplet extends JApplet {
                 x++;
             }
             lineFromMap = false;
-            y = 0;
+            y = -10 + playerY;
+            if (y < 0) {
+                y = 0;
+            }
         }
         g.setColor(Color.blue);
         g.fillOval(302, 302, 26, 26);
