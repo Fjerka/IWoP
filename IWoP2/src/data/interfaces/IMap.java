@@ -5,6 +5,8 @@
 package data.interfaces;
 
 import data.Location;
+import data.Story;
+import data.World;
 
 /**
  *
@@ -24,6 +26,6 @@ public interface IMap {
     
     public int getNewLocationY();
     
-    public boolean isAccessible();
+    public boolean isAccessible(Story story, World world);
     
 }
