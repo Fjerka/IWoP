@@ -21,4 +21,8 @@ public interface IPokemon {
   public int getEnergyMax();
   
   public int getEnergy();
+  
+  public void setPicture(String picture);
+  
+  public String getPicture();
 }

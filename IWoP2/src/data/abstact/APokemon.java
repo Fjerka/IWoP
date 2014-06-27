@@ -18,7 +18,7 @@ public abstract class APokemon implements IPokemon {
     private int id, dexNum;
     private boolean gender;
     private double genderRation, height, weight;
-    private String name, nickname, description;
+    private String name, nickname, description, picture;
     private int energyMax, energy, actionPointsMax, actionPoints, hpMax, hp, attack, specialAttack, defense,
             specialDefense, speed, evassiveness, love, exepriencePoints;
     private int hpLevel, actionPointsLevel, attackLevel, specialAttackLevel, defenseLevel, specialDefenseLevel,
@@ -104,6 +104,15 @@ public abstract class APokemon implements IPokemon {
     public int getHpMax() {
         return hpMax;
     }
-    
+
+    @Override
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    @Override
+    public String getPicture() {
+        return picture;
+    }
     
 }
