@@ -114,5 +114,11 @@ public abstract class APokemon implements IPokemon {
     public String getPicture() {
         return picture;
     }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+    
     
 }

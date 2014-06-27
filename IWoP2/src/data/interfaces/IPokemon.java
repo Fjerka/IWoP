@@ -25,4 +25,6 @@ public interface IPokemon {
   public void setPicture(String picture);
   
   public String getPicture();
+  
+  public String getName();
 }
