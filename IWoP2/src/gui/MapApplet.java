@@ -13,6 +13,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.JApplet;
 
@@ -66,7 +68,6 @@ public class MapApplet extends JApplet {
                             loadedImages.put(location.getMap()[x][y].getID(), image);
                             g.drawImage(image, (i + 10) * 30, (j + 10) * 30, null);
                         } catch (IOException e) {
-                            System.out.println(location.getMap()[x][y].getTileFile());
                             g.setColor(Color.black);
                             g.fillRect((i + 10) * 30, (j + 10) * 30, 30, 30);
                         }
@@ -89,6 +90,15 @@ public class MapApplet extends JApplet {
         }
         g.setColor(Color.blue);
         g.fillOval(302, 302, 26, 26);
+        
+//        BufferedImage im = null;
+//        try {
+//            im = ImageIO.read(new File("images/pokemon/019Rattata.png"));
+//            g.drawImage(im, 0, 0, 60, 50, null);
+//            //g.drawImage(im, 0, 0, null);
+//        } catch (IOException ex) {
+//            System.out.println("chyba");
+//        }
     }
 
     public void setParameters(Location location, int playerX, int playerY) {
