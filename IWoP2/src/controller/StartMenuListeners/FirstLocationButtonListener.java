@@ -8,7 +8,9 @@ package controller.StartMenuListeners;
 
 import controller.MainScreenListeners.MapKeyboardListener;
 import controller.MainScreenListeners.NextTurnButtonListener;
+import controller.MainScreenListeners.PKMNDetailButtonListener;
 import data.Game;
+import gui.MainScreen;
 import gui.View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,6 +37,11 @@ public class FirstLocationButtonListener implements ActionListener{
                 game.getActivePlayer().getY());
         view.mainScreen.addKeyListener(new MapKeyboardListener(game, view));
         view.mainScreen.getNextTurnButton().addActionListener(new NextTurnButtonListener(game, view));
+        for (int i = 0; i < 6; i++) {
+            if (view.mainScreen.getPartyDetails()[i] != null){
+                view.mainScreen.getPartyDetails()[i].addActionListener(new PKMNDetailButtonListener(i, game, view));
+            }
+        }
     }
     
 }

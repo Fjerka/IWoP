@@ -27,7 +27,8 @@ public class PKMNDetailButtonListener implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        view.mainScreen.createLeftPanelDetailPokemonView(game.getActivePlayer().getPartyPokemons()[index]);
+        view.mainScreen.createRightPanelDetailPokemonView(game.getActivePlayer().getPartyPokemons()[index]);
     }
     
 }
