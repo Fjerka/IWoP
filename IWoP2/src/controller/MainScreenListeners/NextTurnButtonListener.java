@@ -26,7 +26,7 @@ public class NextTurnButtonListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         game.nextTurn();
-        view.createMainScreen(game.getActivePlayer().getLocation(), game.getActivePlayer().getX(), game.getActivePlayer().getY());
+        view.updateMainScreen(game.getActivePlayer().getLocation(), game.getActivePlayer().getX(), game.getActivePlayer().getY());
         view.mainScreen.updateDate(game.getDate());
     }
     
