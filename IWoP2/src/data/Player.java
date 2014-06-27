@@ -21,7 +21,7 @@ public class Player extends ATrainer {
     private List<ITrainingMethod> trainingMethods;
     private List<IPokemon> storedPokemons;
     private Map<World, List<IBadge>> badges;
-     private Story story;
+    private Story story;
     private World world;
     private Location location;
     private int x, y;
