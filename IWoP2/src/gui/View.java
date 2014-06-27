@@ -29,6 +29,9 @@ public class View {
     }
     
     public void updateMainScreen(Location location, int playerX, int playerY) {
-        
+        mainScreen.repaintMap(game.getActivePlayer(), location, playerX, playerY);
+        mainScreen.updateLeftPanelMapVIew(game.getActivePlayer());
+        mainScreen.updateRightPanelMapView(game.getActivePlayer());
+        mainScreen.updateDate(game.getDate());
     }
 }
