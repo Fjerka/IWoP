@@ -233,8 +233,9 @@ public class MainScreen extends JFrame {
     }
 
     public void createLeftPanelDetailPokemonView(IPokemon pokemon) {
+        getContentPane().remove(applet);
+        getContentPane().remove(statusLine);
         leftPanel.removeAll();
-        remove(applet);
         
         GridBagConstraints c = new GridBagConstraints();
         c.anchor = GridBagConstraints.NORTH;
@@ -259,15 +260,33 @@ public class MainScreen extends JFrame {
         }
         ImageIcon icon = new ImageIcon(image);
         JLabel picture = new JLabel(icon);
-        picture.setPreferredSize(new Dimension(width, height));
         c.gridx = 0;
         c.gridy = 0;
         leftPanel.add(picture, c);
+        
+        JLabel name = new JLabel(pokemon.getName());
+        name.setPreferredSize(new Dimension(200, 50));
+        c.gridx = 0;
+        c.gridy = 1;
+        leftPanel.add(name, c);
+        
         revalidate();
     }
 
     public void createRightPanelDetailPokemonView(IPokemon pokemon) {
-
+        rightPanel.removeAll();
+        
+        GridBagConstraints c = new GridBagConstraints();
+        c.anchor = GridBagConstraints.NORTH;
+        c.fill = GridBagConstraints.HORIZONTAL;
+        
+        JLabel nickname = new JLabel(pokemon.getNickname());
+        nickname.setPreferredSize(new Dimension(830, 50));
+        c.gridx = 0;
+        c.gridy = 0;
+        rightPanel.add(nickname);
+        
+        revalidate();
     }
 
     public void updateDate(String date) {
