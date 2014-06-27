@@ -4,6 +4,7 @@
  */
 package data;
 
+import data.abstact.ATrainer;
 import data.interfaces.*;
 import java.util.List;
 import java.util.Map;
@@ -12,7 +13,7 @@ import java.util.Map;
  *
  * @author Stefan
  */
-public class Player extends Trainer {
+public class Player extends ATrainer {
 
     private int currentExp, maxExp, currentHunger, maxHunger,
             currentMovementPoints, maxMovementPoints, currentExhaustion,

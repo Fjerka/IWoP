@@ -5,8 +5,10 @@
 package data;
 
 import controller.Controller;
+import data.abstact.APokemon;
 import data.map.grass.Grass;
 import data.interfaces.IMap;
+import data.pokemons.NormalPokemon;
 import data.quests.SimpleQuest;
 import gui.View;
 import java.io.FileNotFoundException;
