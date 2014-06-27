@@ -38,7 +38,8 @@ public abstract class ATrainer {
     public String getSurname() {
         return surname;
     }
-    
-    
-    
+
+    public IPokemon[] getPartyPokemons() {
+        return partyPokemons;
+    }
 }

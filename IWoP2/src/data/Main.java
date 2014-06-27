@@ -35,7 +35,9 @@ public class Main {
         story.addMainQuest(worlds[0], new SimpleQuest(1));
         IPokemon[] pokemons = {new NormalPokemon(1, 19, true, 50, 0.3, 3.5,
             "Rattata", "Fangy", "Living wherever there is food available, it ceaselessly scavenges for edibles the entire day.",
-            100, 100, 15, 15, 15, 28, 12, 17, 17, 36, 0, 0, null, null), null, null, null, null, null};
+            100, 100, 15, 15, 15, 15, 28, 12, 17, 17, 36, 0, 0, null, null), new NormalPokemon(2, 19, true, 50, 0.3, 3.5,
+            "Rattata", "Fangy2", "Living wherever there is food available, it ceaselessly scavenges for edibles the entire day.",
+            100, 100, 15, 15, 15, 15, 28, 12, 17, 17, 36, 0, 0, null, null), null, null, null, null};
         Player[] players = {new Player("Ash", "Ketchum", 0, true, 0, 100, 70, 70,
             100, 100, 50, 50, 100, 100, null, null, null, story, worlds[0],
             worlds[0].getLoactions()[0], 1, 1, pokemons, null, null)};

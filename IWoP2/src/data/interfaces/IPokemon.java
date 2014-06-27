@@ -11,4 +11,14 @@ package data.interfaces;
 public interface IPokemon {
     
   public int[] getTypeRatio();
+  
+  public String getNickname();
+  
+  public int getHpMax();
+  
+  public int getHp();
+  
+  public int getEnergyMax();
+  
+  public int getEnergy();
 }

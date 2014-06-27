@@ -33,7 +33,6 @@ public class World {
         Scanner s = new Scanner(new FileReader(new File(file)));
         int x = s.nextInt();
         int y = s.nextInt();
-        System.out.println( x+" "+y);
         IMap[][] map = new IMap[x][y];
         int i = 0, j = 0;
         MapFactory factory = new MapFactory();

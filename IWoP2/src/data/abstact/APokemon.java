@@ -19,20 +19,21 @@ public abstract class APokemon implements IPokemon {
     private boolean gender;
     private double genderRation, height, weight;
     private String name, nickname, description;
-    private int energyMax, energy, actionPointsMax, actionPoints, hp, attack, specialAttack, defense,
+    private int energyMax, energy, actionPointsMax, actionPoints, hpMax, hp, attack, specialAttack, defense,
             specialDefense, speed, evassiveness, love, exepriencePoints;
     private int hpLevel, actionPointsLevel, attackLevel, specialAttackLevel, defenseLevel, specialDefenseLevel,
             speedLevel, evassivenssLevel;
     private IMove[] moves;
     private INature nature;
+    protected int[] typeRatio;
 
     public APokemon() {
     }
 
     public APokemon(int id, int dexNum, boolean gender, double genderRation, double height, double weight,
             String name, String nickname, String description, int energyMax, int energy, int actionPointsMax,
-            int actionPoints, int hp, int attack, int specialAttack, int defense, int specialDefense, int speed,
-            int love, int exepriencePoints, IMove[] moves, INature nature) {
+            int actionPoints, int hpMax, int hp, int attack, int specialAttack, int defense, int specialDefense,
+            int speed, int love, int exepriencePoints, IMove[] moves, INature nature) {
         this.id = id;
         this.dexNum = dexNum;
         this.gender = gender;
@@ -46,6 +47,7 @@ public abstract class APokemon implements IPokemon {
         this.energy = energy;
         this.actionPointsMax = actionPointsMax;
         this.actionPoints = actionPoints;
+        this.hpMax = hpMax;
         this.hp = hp;
         this.attack = attack;
         this.specialAttack = specialAttack;
@@ -72,4 +74,36 @@ public abstract class APokemon implements IPokemon {
         this.moves = moves;
         this.nature = nature;
     }
+    
+    @Override
+    public int[] getTypeRatio() {
+        return typeRatio;
+    }
+
+    @Override
+    public String getNickname() {
+        return nickname;
+    }
+
+    @Override
+    public int getEnergy() {
+        return energy;
+    }
+
+    @Override
+    public int getEnergyMax() {
+        return energyMax;
+    }
+
+    @Override
+    public int getHp() {
+        return hp;
+    }
+
+    @Override
+    public int getHpMax() {
+        return hpMax;
+    }
+    
+    
 }
