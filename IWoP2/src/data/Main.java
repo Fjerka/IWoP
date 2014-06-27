@@ -5,13 +5,6 @@
 package data;
 
 import controller.Controller;
-<<<<<<< HEAD
-import data.abstact.APokemon;
-import data.map.grass.Grass;
-import data.interfaces.IMap;
-import data.pokemons.NormalPokemon;
-=======
->>>>>>> origin/master
 import data.quests.SimpleQuest;
 import gui.View;
 import java.io.FileNotFoundException;
