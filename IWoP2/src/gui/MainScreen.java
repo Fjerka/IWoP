@@ -9,11 +9,16 @@ import data.Location;
 import data.Player;
 import data.interfaces.IPokemon;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -42,7 +47,7 @@ public class MainScreen extends JFrame {
 
     public MainScreen() {
     }
-
+    
     public void create(Player player, Location location, int playerX, int playerY) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setName("IWoP");
@@ -204,6 +209,14 @@ public class MainScreen extends JFrame {
         }
     }
 
+    private void leftPanelDetailPokemonView(IPokemon pokemon) {
+        BufferedImage image = null;
+        try {
+            image = ImageIO.read(new File(pokemon.getPicture()));
+        } catch (IOException ex) {
+        }
+    }
+    
     public void updateDate(String date) {
         statusLine.setText(date);
     }
