@@ -5,8 +5,6 @@
 package data;
 
 import controller.Controller;
-import data.map.grass.Grass;
-import data.interfaces.IMap;
 import data.quests.SimpleQuest;
 import gui.View;
 import java.io.FileNotFoundException;
@@ -23,13 +21,6 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        /*IMap[][] access = {{new Grass(), new Grass(), new Grass(), new Grass(), new Grass(), new Grass()},
-            {new Grass(), new Grass(), new Grass(), new Grass(), new Grass(), new Grass()},
-            {new Grass(), new Grass(), new Grass(), new Grass(), new Grass(), new Grass()},
-            {new Grass(), new Grass(), new Grass(), new Grass(), new Grass(), new Grass()},
-            {new Grass(), new Grass(), new Grass(), new Grass(), new Grass(), new Grass()},
-            {new Grass(), new Grass(), new Grass(), new Grass(), new Grass(), new Grass()}};
-        Location[] locations = {new Location("lokace 1", access)};*/
         World[] worlds = {new World("New World", 1)};
         try {
             worlds[0].loadNewLocation("location1.txt", "Crossroads");
