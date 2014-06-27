@@ -10,5 +10,5 @@ package data.interfaces;
  */
 public interface IPokemon {
     
-    
+  public int[] getTypeRatio();
 }
