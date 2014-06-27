@@ -30,7 +30,11 @@ public class Game {
         return activePlayer;
     }
 
-    public String getDate() {
+    public String getTextForStatusLine(){
+        return getDate()+"     "+worlds[0].getName()+": "+activePlayer.getLocation().getName();
+    }
+    
+    private String getDate() {
         if (day == 1) {
             return getDayTime() + " " + day + "st " + getMonth() + " Year: " + year;
         } else if (day == 2) {

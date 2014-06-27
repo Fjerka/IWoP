@@ -23,4 +23,8 @@ public class Location {
    public IMap[][] getMap(){
        return map;
    }
+   
+   public String getName(){
+       return name;
+   }
 }
