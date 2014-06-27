@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package data.abstact;
 
 import data.interfaces.IMove;
@@ -14,13 +13,13 @@ import data.interfaces.IPokemon;
  *
  * @author Vera
  */
-public abstract class APokemon implements IPokemon{
-    
+public abstract class APokemon implements IPokemon {
+
     private int id, dexNum;
     private boolean gender;
     private double genderRation, height, weight;
     private String name, nickname, description;
-    private int energyMax, energy, actionPointsMax, actionPoints, hp, attack, specialAttack, defense, 
+    private int energyMax, energy, actionPointsMax, actionPoints, hp, attack, specialAttack, defense,
             specialDefense, speed, evassiveness, love, exepriencePoints;
     private int hpLevel, actionPointsLevel, attackLevel, specialAttackLevel, defenseLevel, specialDefenseLevel,
             speedLevel, evassivenssLevel;
@@ -30,12 +29,10 @@ public abstract class APokemon implements IPokemon{
     public APokemon() {
     }
 
-    public APokemon(int id, int dexNum, boolean gender, double genderRation, double height, double weight, 
-            String name, String nickname, String description, int energyMax, int energy, int actionPointsMax, 
-            int actionPoints, int hp, int attack, int specialAttack, int defense, int specialDefense, int speed, 
-            int evassiveness, int love, int exepriencePoints, int hpLevel, int actionPointsLevel, int attackLevel, 
-            int specialAttackLevel, int defenseLevel, int specialDefenseLevel, int speedLevel, int evassivenssLevel, 
-            IMove[] moves, INature nature) {
+    public APokemon(int id, int dexNum, boolean gender, double genderRation, double height, double weight,
+            String name, String nickname, String description, int energyMax, int energy, int actionPointsMax,
+            int actionPoints, int hp, int attack, int specialAttack, int defense, int specialDefense, int speed,
+            int love, int exepriencePoints, IMove[] moves, INature nature) {
         this.id = id;
         this.dexNum = dexNum;
         this.gender = gender;
@@ -55,17 +52,23 @@ public abstract class APokemon implements IPokemon{
         this.defense = defense;
         this.specialDefense = specialDefense;
         this.speed = speed;
-        this.evassiveness = evassiveness;
+        this.evassiveness = (this.speed+(this.attack/3)+(this.specialAttack/3)+(this.defense/6)+(this.specialDefense/6))/2;
         this.love = love;
         this.exepriencePoints = exepriencePoints;
-        this.hpLevel = hpLevel;
-        this.actionPointsLevel = actionPointsLevel;
-        this.attackLevel = attackLevel;
-        this.specialAttackLevel = specialAttackLevel;
-        this.defenseLevel = defenseLevel;
-        this.specialDefenseLevel = specialDefenseLevel;
-        this.speedLevel = speedLevel;
-        this.evassivenssLevel = evassivenssLevel;
+        double EX = (this.attack + this.specialAttack + this.defense + this.specialDefense + this.speed + this.evassiveness) / 6.0;
+        double[] normalizedValues = {EX / this.attack, EX / this.specialAttack, EX / this.defense, EX / this.specialDefense, EX / this.speed, EX / this.evassiveness};
+        double sum = 0;
+        for (double d : normalizedValues) {
+            sum += d;
+        }
+        this.hpLevel = hp;
+        this.actionPointsLevel = 100;
+        this.attackLevel = (int) Math.ceil(60.0 * normalizedValues[0] / sum);
+        this.specialAttackLevel = (int) Math.ceil(60.0 * normalizedValues[1] / sum);
+        this.defenseLevel = (int) Math.ceil(60.0 * normalizedValues[2] / sum);
+        this.specialDefenseLevel = (int) Math.ceil(60.0 * normalizedValues[3] / sum);
+        this.speedLevel = (int) Math.ceil(60.0 * normalizedValues[4] / sum);
+        this.evassivenssLevel = (int) Math.ceil(60.0 * normalizedValues[5] / sum);
         this.moves = moves;
         this.nature = nature;
     }

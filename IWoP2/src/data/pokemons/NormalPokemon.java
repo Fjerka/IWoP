@@ -18,16 +18,13 @@ public class NormalPokemon extends APokemon{
     
     private int[] typeRatio = {1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1};
 
-    public NormalPokemon(int id, int dexNum, boolean gender, double genderRation, double height, double weight, 
-            String name, String nickname, String description, int energyMax, int energy, int actionPointsMax, 
-            int actionPoints, int hp, int attack, int specialAttack, int defense, int specialDefense, int speed, 
-            int evassiveness, int love, int exepriencePoints, int hpLevel, int actionPointsLevel, int attackLevel, 
-            int specialAttackLevel, int defenseLevel, int specialDefenseLevel, int speedLevel, int evassivenssLevel, 
-            IMove[] moves, INature nature) {
-        super(id, dexNum, gender, genderRation, height, weight, name, nickname, description, energyMax, energy, 
-                actionPointsMax, actionPoints, hp, attack, specialAttack, defense, specialDefense, speed, evassiveness, 
-                love, exepriencePoints, hpLevel, actionPointsLevel, attackLevel, specialAttackLevel, defenseLevel, 
-                specialDefenseLevel, speedLevel, evassivenssLevel, moves, nature);
+    public NormalPokemon(int id, int dexNum, boolean gender, double genderRation, double height, double weight,
+            String name, String nickname, String description, int energyMax, int energy, int actionPointsMax,
+            int actionPoints, int hp, int attack, int specialAttack, int defense, int specialDefense, int speed,
+            int love, int exepriencePoints, IMove[] moves, INature nature) {
+        super(id, dexNum, gender, genderRation, height, weight, name, nickname, description,
+                energyMax, energy, actionPointsMax, actionPoints, hp, attack, specialAttack,
+                defense, specialDefense, speed, love, exepriencePoints, moves, nature);
     }
 
     
