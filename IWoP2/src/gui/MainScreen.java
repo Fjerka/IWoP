@@ -228,12 +228,17 @@ public class MainScreen extends JFrame {
         }
     }
     
-    private void leftPanelDetailPokemonView(IPokemon pokemon) {
+    public void createLeftPanelDetailPokemonView(IPokemon pokemon) {
         BufferedImage image = null;
         try {
             image = ImageIO.read(new File(pokemon.getPicture()));
+            
         } catch (IOException ex) {
         }
+    }
+    
+    public void createRightPanelDetailPokemonView(IPokemon pokemon) {
+        
     }
     
     public void updateDate(String date) {
@@ -254,5 +259,9 @@ public class MainScreen extends JFrame {
     
     public JButton getNextTurnButton() {
         return nextTurnButton;
+    }
+    
+    public JButton[] getPartyDetails() {
+        return partyDetails;
     }
 }
