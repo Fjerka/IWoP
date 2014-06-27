@@ -25,5 +25,6 @@ public class View {
     public void createMainScreen(Location location, int playerX, int playerY){
         mainScreen = new MainScreen();
         mainScreen.create(game.getActivePlayer(), location, playerX, playerY);
+        mainScreen.updateDate(game.getDate());
     }
 }

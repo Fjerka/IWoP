@@ -38,6 +38,7 @@ public class MainScreen extends JFrame {
         new JLabel(), new JLabel()};
     private JButton[] partyDetails = {new JButton("Details"), new JButton("Details"), 
         new JButton("Details"), new JButton("Details"), new JButton("Details"), new JButton("Details")};
+    private JButton nextTurnButton;
 
     public MainScreen() {
     }
@@ -73,7 +74,6 @@ public class MainScreen extends JFrame {
         
         statusLine = new JLabel();
         statusLine.setPreferredSize(new Dimension(1030, 50));
-        statusLine.setHorizontalAlignment(SwingConstants.RIGHT);
         statusLine.setOpaque(true);
         statusLine.setBackground(Color.gray);
         c.gridx = 0;
@@ -139,6 +139,12 @@ public class MainScreen extends JFrame {
         c.gridx = 1;
         c.gridy = 3;
         leftPanel.add(movementPoints, c);
+        
+        nextTurnButton = new JButton("Next Turn");
+        c.gridx = 0;
+        c.gridy = 4;
+        c.gridwidth = 2;
+        leftPanel.add(nextTurnButton, c);
     }
     
     private void rightPanelMapView(Player player) {
@@ -198,6 +204,10 @@ public class MainScreen extends JFrame {
         }
     }
 
+    public void updateDate(String date) {
+        statusLine.setText(date);
+    }
+    
     public void repaintMap(Player player, Location location, int playerX, int playerY) {
         exhaustion.setText(player.getCurrentExhaustion() + "/" + player.getMaxExhaustion());
         hunger.setText(player.getCurrentHunger() + "/" + player.getMaxHunger());
@@ -208,5 +218,9 @@ public class MainScreen extends JFrame {
 
     public MapApplet getApplet() {
         return applet;
+    }
+    
+    public JButton getNextTurnButton() {
+        return nextTurnButton;
     }
 }
