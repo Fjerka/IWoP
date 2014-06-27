@@ -5,6 +5,7 @@
 package data;
 
 import data.interfaces.IMap;
+import data.interfaces.INPC;
 
 /**
  *
@@ -14,10 +15,12 @@ public class Location {
     
     private String name;
     private IMap[][] map;
+    private INPC[][] npcs;
 
-    public Location(String name, IMap[][] map) {
+    public Location(String name, IMap[][] map, INPC[][] npcs) {
         this.name = name;
         this.map = map;
+        this.npcs = npcs;
     }
    
    public IMap[][] getMap(){

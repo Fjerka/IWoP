@@ -5,6 +5,7 @@
 package data;
 
 import data.interfaces.IMap;
+import data.interfaces.INPC;
 import data.map.MapFactory;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -46,7 +47,7 @@ public class World {
         }
         for (int k = 0; k < locations.length; k++) {
             if (locations[k] == null) {
-                locations[k] = new Location(locationName, map);
+                locations[k] = new Location(locationName, map, null);
                 return;
             }
         }
