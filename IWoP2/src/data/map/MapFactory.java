@@ -76,7 +76,7 @@ public class MapFactory {
             case 110311:
                 return new NorthWestRiversideCross();
             case 110312:
-                return new SouthEastDirtRoadCross();
+                return new SouthEastRiversideCross();
             case 110313:
                 return new SouthWestRiversideCross();
             default:

@@ -50,6 +50,26 @@ public class MapKeyboardListener implements KeyListener {
                 view.mainScreen.repaintMap(game.getActivePlayer().getLocation(), game.getActivePlayer().getX(), 
                         game.getActivePlayer().getY());
                 break;
+            case KeyEvent.VK_UP:
+                game.getActivePlayer().moveUp();
+                view.mainScreen.repaintMap(game.getActivePlayer().getLocation(), game.getActivePlayer().getX(), 
+                        game.getActivePlayer().getY());
+                break;
+            case KeyEvent.VK_DOWN:
+                game.getActivePlayer().moveDown();
+                view.mainScreen.repaintMap(game.getActivePlayer().getLocation(), game.getActivePlayer().getX(), 
+                        game.getActivePlayer().getY());
+                break;
+            case KeyEvent.VK_LEFT:
+                game.getActivePlayer().moveLeft();
+                view.mainScreen.repaintMap(game.getActivePlayer().getLocation(), game.getActivePlayer().getX(), 
+                        game.getActivePlayer().getY());
+                break;
+            case KeyEvent.VK_RIGHT:
+                game.getActivePlayer().moveRight();
+                view.mainScreen.repaintMap(game.getActivePlayer().getLocation(), game.getActivePlayer().getX(), 
+                        game.getActivePlayer().getY());
+                break;
             default:
                 break;
         }
