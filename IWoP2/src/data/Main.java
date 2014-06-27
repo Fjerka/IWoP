@@ -46,6 +46,7 @@ public class Main {
         Game game = new Game(players, worlds);
         View view = new View(game);
         Controller controller = new Controller(game, view);
+        System.out.println(game.getDate());
     }
 }
 

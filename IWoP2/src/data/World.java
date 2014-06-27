@@ -24,12 +24,12 @@ public class World {
         this.name = name;
         this.locations = new Location[numberOfLocations];
     }
-    
-    public Location[] getLoactions(){
+
+    public Location[] getLoactions() {
         return locations;
     }
 
-    public void loadNewLocation(String file, String locationName) throws FileNotFoundException  {
+    public void loadNewLocation(String file, String locationName) throws FileNotFoundException {
         Scanner s = new Scanner(new FileReader(new File(file)));
         int x = s.nextInt();
         int y = s.nextInt();

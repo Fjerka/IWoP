@@ -142,5 +142,9 @@ public class Player extends ATrainer {
         return maxMovementPoints;
     }
     
+    public void resetForNextTurn(){
+        currentMovementPoints = maxMovementPoints;
+    }
+    
     
 }
