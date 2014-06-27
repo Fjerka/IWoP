@@ -7,12 +7,11 @@
 package controller.StartMenuListeners;
 
 import controller.MainScreenListeners.MapKeyboardListener;
+import controller.MainScreenListeners.NextTurnButtonListener;
 import data.Game;
-import data.Location;
 import gui.View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JFrame;
 
 
 /**
@@ -35,6 +34,7 @@ public class FirstLocationButtonListener implements ActionListener{
         view.createMainScreen(game.getActivePlayer().getLocation(), game.getActivePlayer().getX(), 
                 game.getActivePlayer().getY());
         view.mainScreen.addKeyListener(new MapKeyboardListener(game, view));
+        view.mainScreen.getNextTurnButton().addActionListener(new NextTurnButtonListener(game, view));
     }
     
 }
