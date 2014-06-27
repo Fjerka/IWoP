@@ -32,7 +32,7 @@ import javax.swing.SwingConstants;
 public class MainScreen extends JFrame {
 
     private MapApplet applet;
-    private JLabel exhaustion, hunger, movementPoints;
+    private JLabel playerName, exhaustion, hunger, movementPoints;
     private JPanel leftPanel = null, rightPanel = null;
     private JLabel statusLine;
     private JLabel[] partyName = {new JLabel(), new JLabel(), new JLabel(), new JLabel(),
@@ -57,7 +57,7 @@ public class MainScreen extends JFrame {
         JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
 
-        leftPanelMapView(player);
+        createLeftPanelMapView(player);
         c.anchor = GridBagConstraints.NORTH;
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
@@ -72,7 +72,7 @@ public class MainScreen extends JFrame {
         c.insets = new Insets(0, 0, 0, 0);
         panel.add(applet, c);
 
-        rightPanelMapView(player);
+        createRightPanelMapView(player);
         c.gridx = 2;
         c.gridy = 0;
         panel.add(rightPanel, c);
@@ -92,7 +92,7 @@ public class MainScreen extends JFrame {
         repaintMap(player, location, playerX, playerY);
     }
     
-    private void leftPanelMapView(Player player) {
+    private void createLeftPanelMapView(Player player) {
         if (leftPanel == null) {
             leftPanel = new JPanel(new GridBagLayout());
         }
@@ -101,14 +101,14 @@ public class MainScreen extends JFrame {
         c.insets = new Insets(2, 2, 2, 2);
         c.anchor = GridBagConstraints.NORTH;
         
-        JLabel label1 = new JLabel(player.getFirstName() + " " + player.getSurname());
-        label1.setHorizontalAlignment(SwingConstants.CENTER);
-        label1.setPreferredSize(new Dimension(200, 30));
+        playerName = new JLabel(player.getFirstName() + " " + player.getSurname());
+        playerName.setHorizontalAlignment(SwingConstants.CENTER);
+        playerName.setPreferredSize(new Dimension(200, 30));
         c.fill = GridBagConstraints.CENTER;
         c.gridx = 0;
         c.gridy = 0;
         c.gridwidth = 2;
-        leftPanel.add(label1, c);
+        leftPanel.add(playerName, c);
 
         JLabel label2 = new JLabel("Exhaustion:");
         c.fill = GridBagConstraints.HORIZONTAL;
@@ -152,7 +152,14 @@ public class MainScreen extends JFrame {
         leftPanel.add(nextTurnButton, c);
     }
     
-    private void rightPanelMapView(Player player) {
+    public void updateLeftPanelMapVIew(Player player) {
+        playerName.setName(player.getFirstName() + " " + player.getSurname());
+        exhaustion.setText(player.getCurrentExhaustion() + "/" + player.getMaxExhaustion());
+        hunger.setText(player.getCurrentHunger() + "/" + player.getMaxHunger());
+        movementPoints.setText(player.getCurrentMovementPoints() + "/" + player.getMaxMovementPoints());
+    }
+    
+    private void createRightPanelMapView(Player player) {
         if (rightPanel == null) {
             rightPanel = new JPanel(new GridBagLayout());
         }
@@ -209,6 +216,18 @@ public class MainScreen extends JFrame {
         }
     }
 
+    public void updateRightPanelMapView(Player player) {
+        for (int i = 0; i < 6; i++) {
+            IPokemon pokemon = player.getPartyPokemons()[i];
+            if (pokemon == null) {
+                break;
+            }
+            partyName[i].setText(pokemon.getNickname());
+            partyHp[i].setText(pokemon.getEnergy() + "/" + pokemon.getEnergyMax());
+            partyEnergy[i].setText(pokemon.getEnergy() + "/" + pokemon.getEnergyMax());
+        }
+    }
+    
     private void leftPanelDetailPokemonView(IPokemon pokemon) {
         BufferedImage image = null;
         try {
