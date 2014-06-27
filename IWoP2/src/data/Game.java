@@ -136,7 +136,7 @@ public class Game {
                 }
             }
         }
-        activePlayer.resetForNextTurn();
         activePlayer = players[activePlayerIndex];
+        activePlayer.resetForNextTurn();
     }
 }
