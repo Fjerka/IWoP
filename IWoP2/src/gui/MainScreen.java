@@ -234,6 +234,8 @@ public class MainScreen extends JFrame {
 
     public void createLeftPanelDetailPokemonView(IPokemon pokemon) {
         leftPanel.removeAll();
+        remove(applet);
+        
         GridBagConstraints c = new GridBagConstraints();
         c.anchor = GridBagConstraints.NORTH;
         c.fill = GridBagConstraints.HORIZONTAL;
