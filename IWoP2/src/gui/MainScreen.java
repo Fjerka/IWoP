@@ -232,26 +232,34 @@ public class MainScreen extends JFrame {
     public void createLeftPanelDetailPokemonView(IPokemon pokemon) {
         leftPanel.removeAll();
         GridBagConstraints c = new GridBagConstraints();
+        c.anchor = GridBagConstraints.NORTH;
+        c.fill = GridBagConstraints.HORIZONTAL;
         
         BufferedImage image = null;
         int height = 0, width = 0;
         try {
             image = ImageIO.read(new File(pokemon.getPicture()));
-            double scale = 0;
+            double scale = 0.0;
             if (image.getHeight() < image.getWidth()) {
-                scale = 100 / image.getWidth();
-                width = 100;
+                scale = (double) 200 / image.getWidth();
+                width = 200;
                 height = (int) Math.floor(image.getHeight() * scale);
             } else {
-                scale = 100 / image.getHeight();
-                height = 100;
+                scale = (double) 200 / image.getHeight();
+                height = 200;
                 width = (int) Math.floor(image.getHeight() * scale);
             }
+            
         } catch (IOException ex) {
         }
+        
         ImageIcon icon = new ImageIcon(image);
         JLabel picture = new JLabel(icon);
         picture.setPreferredSize(new Dimension(width, height));
+        c.gridx = 0;
+        c.gridy = 0;
+        leftPanel.add(picture, c);
+        revalidate();
     }
 
     public void createRightPanelDetailPokemonView(IPokemon pokemon) {
