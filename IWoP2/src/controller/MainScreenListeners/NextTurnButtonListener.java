@@ -27,7 +27,7 @@ public class NextTurnButtonListener implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         game.nextTurn();
         view.updateMainScreen(game.getActivePlayer().getLocation(), game.getActivePlayer().getX(), game.getActivePlayer().getY());
-        view.mainScreen.updateDate(game.getDate());
+        view.mainScreen.updateDate(game.getTextForStatusLine());
     }
     
 }

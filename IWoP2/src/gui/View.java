@@ -26,14 +26,14 @@ public class View {
     public void createMainScreen(Location location, int playerX, int playerY){
         mainScreen = new MainScreen();
         mainScreen.create(game.getActivePlayer(), location, playerX, playerY);
-        mainScreen.updateDate(game.getDate());
+        mainScreen.updateDate(game.getTextForStatusLine());
     }
     
     public void updateMainScreen(Location location, int playerX, int playerY) {
         mainScreen.repaintMap(game.getActivePlayer(), location, playerX, playerY);
         mainScreen.updateLeftPanelMapVIew(game.getActivePlayer());
         mainScreen.updateRightPanelMapView(game.getActivePlayer());
-        mainScreen.updateDate(game.getDate());
+        mainScreen.updateDate(game.getTextForStatusLine());
         mainScreen.requestFocus();
     }
     

@@ -10,8 +10,10 @@ import data.Player;
 import data.interfaces.IPokemon;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -20,6 +22,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JApplet;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -235,24 +238,23 @@ public class MainScreen extends JFrame {
         c.anchor = GridBagConstraints.NORTH;
         c.fill = GridBagConstraints.HORIZONTAL;
         
-        BufferedImage image = null;
+        Image image = null;
         int height = 0, width = 0;
         try {
-            image = ImageIO.read(new File(pokemon.getPicture()));
+            BufferedImage im = ImageIO.read(new File(pokemon.getPicture()));
             double scale = 0.0;
-            if (image.getHeight() < image.getWidth()) {
-                scale = (double) 200 / image.getWidth();
+            if (im.getHeight() < im.getWidth()) {
+                scale = (double) 200 / im.getWidth();
                 width = 200;
-                height = (int) Math.floor(image.getHeight() * scale);
+                height = (int) Math.floor(im.getHeight() * scale);
             } else {
-                scale = (double) 200 / image.getHeight();
+                scale = (double) 200 / im.getHeight();
                 height = 200;
-                width = (int) Math.floor(image.getHeight() * scale);
+                width = (int) Math.floor(im.getHeight() * scale);
             }
-            
+            image = im.getScaledInstance(width, height, Image.SCALE_SMOOTH);
         } catch (IOException ex) {
         }
-        
         ImageIcon icon = new ImageIcon(image);
         JLabel picture = new JLabel(icon);
         picture.setPreferredSize(new Dimension(width, height));
