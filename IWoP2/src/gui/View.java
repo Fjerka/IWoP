@@ -6,6 +6,7 @@ package gui;
 
 import data.Game;
 import data.Location;
+import data.interfaces.IPokemon;
 
 /**
  *
@@ -34,5 +35,10 @@ public class View {
         mainScreen.updateRightPanelMapView(game.getActivePlayer());
         mainScreen.updateDate(game.getDate());
         mainScreen.requestFocus();
+    }
+    
+    public void createDetailPokemon(IPokemon pokemon) {
+        mainScreen.createLeftPanelDetailPokemonView(pokemon);
+        mainScreen.createRightPanelDetailPokemonView(pokemon);
     }
 }

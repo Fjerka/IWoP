@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -41,13 +42,13 @@ public class MainScreen extends JFrame {
         new JLabel(), new JLabel()};
     private JLabel[] partyEnergy = {new JLabel(), new JLabel(), new JLabel(), new JLabel(),
         new JLabel(), new JLabel()};
-    private JButton[] partyDetails = {new JButton("Details"), new JButton("Details"), 
+    private JButton[] partyDetails = {new JButton("Details"), new JButton("Details"),
         new JButton("Details"), new JButton("Details"), new JButton("Details"), new JButton("Details")};
     private JButton nextTurnButton;
 
     public MainScreen() {
     }
-    
+
     public void create(Player player, Location location, int playerX, int playerY) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setName("IWoP");
@@ -76,7 +77,7 @@ public class MainScreen extends JFrame {
         c.gridx = 2;
         c.gridy = 0;
         panel.add(rightPanel, c);
-        
+
         statusLine = new JLabel();
         statusLine.setPreferredSize(new Dimension(1030, 50));
         statusLine.setOpaque(true);
@@ -91,7 +92,7 @@ public class MainScreen extends JFrame {
         setVisible(true);
         repaintMap(player, location, playerX, playerY);
     }
-    
+
     private void createLeftPanelMapView(Player player) {
         if (leftPanel == null) {
             leftPanel = new JPanel(new GridBagLayout());
@@ -100,7 +101,7 @@ public class MainScreen extends JFrame {
         GridBagConstraints c = new GridBagConstraints();
         c.insets = new Insets(2, 2, 2, 2);
         c.anchor = GridBagConstraints.NORTH;
-        
+
         playerName = new JLabel(player.getFirstName() + " " + player.getSurname());
         playerName.setHorizontalAlignment(SwingConstants.CENTER);
         playerName.setPreferredSize(new Dimension(200, 30));
@@ -144,21 +145,21 @@ public class MainScreen extends JFrame {
         c.gridx = 1;
         c.gridy = 3;
         leftPanel.add(movementPoints, c);
-        
+
         nextTurnButton = new JButton("Next Turn");
         c.gridx = 0;
         c.gridy = 4;
         c.gridwidth = 2;
         leftPanel.add(nextTurnButton, c);
     }
-    
+
     public void updateLeftPanelMapVIew(Player player) {
         playerName.setName(player.getFirstName() + " " + player.getSurname());
         exhaustion.setText(player.getCurrentExhaustion() + "/" + player.getMaxExhaustion());
         hunger.setText(player.getCurrentHunger() + "/" + player.getMaxHunger());
         movementPoints.setText(player.getCurrentMovementPoints() + "/" + player.getMaxMovementPoints());
     }
-    
+
     private void createRightPanelMapView(Player player) {
         if (rightPanel == null) {
             rightPanel = new JPanel(new GridBagLayout());
@@ -167,7 +168,7 @@ public class MainScreen extends JFrame {
         GridBagConstraints c = new GridBagConstraints();
         c.anchor = GridBagConstraints.NORTH;
         c.insets = new Insets(2, 2, 2, 2);
-        
+
         for (int i = 0; i < 6; i++) {
             IPokemon pokemon = player.getPartyPokemons()[i];
             if (pokemon == null) {
@@ -195,7 +196,7 @@ public class MainScreen extends JFrame {
             c.gridx = 1;
             c.gridy = 1 + i * 4;
             rightPanel.add(partyHp[i], c);
-            
+
             JLabel pok2 = new JLabel("Energy:");
             c.gridx = 0;
             c.gridy = 2 + i * 4;
@@ -206,7 +207,7 @@ public class MainScreen extends JFrame {
             c.gridx = 1;
             c.gridy = 2 + i * 4;
             rightPanel.add(partyEnergy[i], c);
-            
+
             c.gridx = 0;
             c.gridy = 3 + i * 4;
             c.gridwidth = 2;
@@ -227,24 +228,40 @@ public class MainScreen extends JFrame {
             partyEnergy[i].setText(pokemon.getEnergy() + "/" + pokemon.getEnergyMax());
         }
     }
-    
+
     public void createLeftPanelDetailPokemonView(IPokemon pokemon) {
+        leftPanel.removeAll();
+        GridBagConstraints c = new GridBagConstraints();
+        
         BufferedImage image = null;
+        int height = 0, width = 0;
         try {
             image = ImageIO.read(new File(pokemon.getPicture()));
-            
+            double scale = 0;
+            if (image.getHeight() < image.getWidth()) {
+                scale = 100 / image.getWidth();
+                width = 100;
+                height = (int) Math.floor(image.getHeight() * scale);
+            } else {
+                scale = 100 / image.getHeight();
+                height = 100;
+                width = (int) Math.floor(image.getHeight() * scale);
+            }
         } catch (IOException ex) {
         }
+        ImageIcon icon = new ImageIcon(image);
+        JLabel picture = new JLabel(icon);
+        picture.setPreferredSize(new Dimension(width, height));
     }
-    
+
     public void createRightPanelDetailPokemonView(IPokemon pokemon) {
-        
+
     }
-    
+
     public void updateDate(String date) {
         statusLine.setText(date);
     }
-    
+
     public void repaintMap(Player player, Location location, int playerX, int playerY) {
         exhaustion.setText(player.getCurrentExhaustion() + "/" + player.getMaxExhaustion());
         hunger.setText(player.getCurrentHunger() + "/" + player.getMaxHunger());
@@ -256,11 +273,11 @@ public class MainScreen extends JFrame {
     public MapApplet getApplet() {
         return applet;
     }
-    
+
     public JButton getNextTurnButton() {
         return nextTurnButton;
     }
-    
+
     public JButton[] getPartyDetails() {
         return partyDetails;
     }
