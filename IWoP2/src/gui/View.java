@@ -33,5 +33,6 @@ public class View {
         mainScreen.updateLeftPanelMapVIew(game.getActivePlayer());
         mainScreen.updateRightPanelMapView(game.getActivePlayer());
         mainScreen.updateDate(game.getDate());
+        mainScreen.requestFocus();
     }
 }
