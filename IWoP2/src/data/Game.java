@@ -127,7 +127,7 @@ public class Game {
                 dayTime = 0;
                 day++;
                 if (day > getLengthOfMonth()) {
-                    day = 0;
+                    day = 1;
                     month++;
                     if (month > 12) {
                         month = 1;
