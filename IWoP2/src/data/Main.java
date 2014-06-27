@@ -46,24 +46,6 @@ public class Main {
         Game game = new Game(players, worlds);
         View view = new View(game);
         Controller controller = new Controller(game, view);
-        System.out.println(game.getDate());
     }
 }
 
-/*
- * 1, 19, true, 50, 0.3, 3.5, 
- "Rattata", "Fangy", "Living wherever there is food available, it ceaselessly scavenges for edibles the entire day.",
- 100, 100, 15, 
- 15, 15, 28, 12, 17, 17, 36, 
- 40, 0, 0, 15, int actionPointsLevel, int attackLevel, 
- int specialAttackLevel, int defenseLevel, int specialDefenseLevel, int speedLevel, int evassivenssLevel, 
- IMove[] moves, INature nature
- */
-
-/*
-  1, 19, true, 50, 0.3, 3.5,
- "Rattata", "Fangy", "Living wherever there is food available, it ceaselessly scavenges for edibles the entire day.",
-  100, 100, 15,15,
-            15, 28, 12, 17, 17, 36,
-             0, 0, null, null
- */
