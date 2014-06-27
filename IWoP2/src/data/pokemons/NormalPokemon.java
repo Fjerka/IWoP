@@ -15,6 +15,8 @@ import data.interfaces.INature;
  * @author Vera
  */
 public class NormalPokemon extends APokemon{
+    
+    private int[] typeRatio = {1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1};
 
     public NormalPokemon(int id, int dexNum, boolean gender, double genderRation, double height, double weight, 
             String name, String nickname, String description, int energyMax, int energy, int actionPointsMax, 

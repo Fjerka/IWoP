@@ -97,6 +97,30 @@ public class Player extends ATrainer {
     public int getY() {
         return y;
     }
+
+    public int getCurrentHunger() {
+        return currentHunger;
+    }
+
+    public int getMaxHunger() {
+        return maxHunger;
+    }
+
+    public int getCurrentExhaustion() {
+        return currentExhaustion;
+    }
+
+    public int getMaxExhaustion() {
+        return maxExhaustion;
+    }
+
+    public int getCurrentMovementPoints() {
+        return currentMovementPoints;
+    }
+
+    public int getMaxMovementPoints() {
+        return maxMovementPoints;
+    }
     
     
 }

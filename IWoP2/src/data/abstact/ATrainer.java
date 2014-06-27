@@ -30,6 +30,14 @@ public abstract class ATrainer {
         this.inventory = inventory;
         this.skills = skills;
     }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
     
     
     
