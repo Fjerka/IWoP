@@ -63,9 +63,7 @@ public class Location {
             loca = s.nextInt();
             nx = s.nextInt();
             ny = s.nextInt();
-            System.out.println(name + ": " + map[tmpX][tmpY].getTileFile() + " [" + tmpX + "][" + tmpY + "]");
             map[tmpX][tmpY] = new LocationSwitch(map[tmpX][tmpY].getTileFile(), locations[loca], nx, ny, map[tmpX][tmpY].getMovementPoints());
-            System.out.println(map[tmpX][tmpY].getTileFile());
         }
     }
 }
