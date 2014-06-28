@@ -62,7 +62,7 @@ public class MapApplet extends JApplet {
                 } else {
                     lineFromMap = true;
                     BufferedImage image = loadedImages.get(location.getMap()[x][y].getID());
-                    if (image == null) {
+                    if (image == null || location.getMap()[x][y].getID() == 1) {
                         try {
                             image = ImageIO.read(new File(location.getMap()[x][y].getTileFile()));
                             loadedImages.put(location.getMap()[x][y].getID(), image);
@@ -102,13 +102,10 @@ public class MapApplet extends JApplet {
     }
 
     public void setParameters(Location location, int playerX, int playerY) {
-        this.location = location;
-        if (location == null) {
-            System.out.println("je null");
-        }
-        if (!this.location.equals(location)) {
+        if (this.location != null && !this.location.equals(location)) {
             loadedImages.clear();
         }
+        this.location = location;
         this.playerX = playerX;
         this.playerY = playerY;
     }
