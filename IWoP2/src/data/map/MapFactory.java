@@ -79,6 +79,18 @@ public class MapFactory {
                 return new SouthEastRiversideCross();
             case 110313:
                 return new SouthWestRiversideCross();
+            case 110320:
+                return new NorthWoodenBridgeRiver();
+            case 110321:
+                return new SouthWoodenBridgeRiver();
+            case 110322:
+                return new NorthWoodenBridgeEastRiverside();
+            case 110323:
+                return new SouthWoodenBridgeEastRiverside();
+            case 110324:
+                return new NorthWoodenBridgeWestRiverside();
+            case 110325:
+                return new SouthWoodenBridgeWestRiverside();
             default:
                 return new NullTile();
         }

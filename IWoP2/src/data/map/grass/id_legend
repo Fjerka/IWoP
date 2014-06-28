@@ -1,40 +1,48 @@
-NullTile                    0
+NullTile                        0
 _________________________________________
-GRASS:                      11****
-bush                        110101
-deepGrass                   110102
-grass                       110103
-rock                        110104
-leafyTreetop                110105
-leafyTreeTrunk              110106
+GRASS:                          11****
+bush                            110101
+deepGrass                       110102
+grass                           110103
+rock                            110104
+leafyTreetop                    110105
+leafyTreeTrunk                  110106
 
-dirtRoad                    110201
-eastDirtRoad                110202
-northDirtRoad               110203
-southDirtRoad               110204
-westDirtRoad                110205
-northEastDirtRoad           110206
-northWestDirtRoad           110207
-southEastDirtRoad           110208
-southWestDirtRoad           110209
-northEastDirtRoadCross      110210
-northWestDirtRoadCross      110211
-southEastDirtRoadCross      110212
-southWestDirtRoadCross      110213
+dirtRoad                        110201
+eastDirtRoad                    110202
+northDirtRoad                   110203
+southDirtRoad                   110204
+westDirtRoad                    110205
+northEastDirtRoad               110206
+northWestDirtRoad               110207
+southEastDirtRoad               110208
+southWestDirtRoad               110209
+northEastDirtRoadCross          110210
+northWestDirtRoadCross          110211
+southEastDirtRoadCross          110212
+southWestDirtRoadCross          110213
 
-river                       110301
-northRiverside              110302
-eastRiverside               110303
-southRiverside              110304
-westRiverside               110305
-northEastRiverside          110306
-northWestRiverside          110307
-southEastRiverside          110308
-southWestRiverside          110309
-northEastRiversideCross     110310
-northWestRiversideCross     110311
-southEastRiversideCross     110312
-southWestRiversideCross     110313
+river                           110301
+northRiverside                  110302
+eastRiverside                   110303
+southRiverside                  110304
+westRiverside                   110305
+northEastRiverside              110306
+northWestRiverside              110307
+southEastRiverside              110308
+southWestRiverside              110309
+northEastRiversideCross         110310
+northWestRiversideCross         110311
+southEastRiversideCross         110312
+southWestRiversideCross         110313
+
+
+northWoodenBridgeRiver          110320
+southWoodenBridgeRiver          110321
+northWoodenBridgeEastRiverside  110322
+southWoodenBridgeEastRiverside  110323
+northWoodenBridgeWestRiverside  110324
+southWoodenBridgeWestRiverside  110325
 
 
 

@@ -5,8 +5,6 @@
 package data;
 
 import controller.Controller;
-import data.interfaces.IMove;
-import data.interfaces.INature;
 import data.interfaces.IPokemon;
 import data.pokemons.NormalPokemon;
 import data.quests.SimpleQuest;
@@ -27,7 +25,7 @@ public class Main {
     public static void main(String[] args) {
         World[] worlds = {new World("New World", 1)};
         try {
-            worlds[0].loadNewLocation("location1.txt", "Crossroads");
+            worlds[0].loadNewLocation("location2.txt", "Crossroads");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
