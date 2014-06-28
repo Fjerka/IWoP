@@ -26,31 +26,18 @@ public class World {
         this.locations = new Location[numberOfLocations];
     }
 
-    public Location[] getLoactions() {
+    public Location[] getLocations() {
         return locations;
     }
-
-    public void loadNewLocation(String file, String locationName) throws FileNotFoundException {
-        Scanner s = new Scanner(new FileReader(new File(file)));
-        int x = s.nextInt();
-        int y = s.nextInt();
-        IMap[][] map = new IMap[x][y];
-        int i = 0, j = 0;
-        MapFactory factory = new MapFactory();
-        while (s.hasNext()) {
-            map[i][j] = factory.create(s.nextInt());
-            i++;
-            if (i >= x) {
-                i = 0;
-                j++;
-            }
+    
+    public void createLocations(int numberOfLocations, String[] locationFiles,String[] locationNames) throws FileNotFoundException{
+        locations = new Location[numberOfLocations];
+        for (int i = 0; i < numberOfLocations; i++) {
+            locations[i] = new Location(locationNames[i]);  
         }
-        for (int k = 0; k < locations.length; k++) {
-            if (locations[k] == null) {
-                locations[k] = new Location(locationName, map, null);
-                return;
-            }
-        }
+        for (int i = 0; i < numberOfLocations; i++) {
+            locations[i].loadNewLocation(locationFiles[i], locations);
+        }   
     }
     
     public String getName(){

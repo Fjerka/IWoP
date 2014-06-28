@@ -15,7 +15,7 @@ import java.util.Map;
  */
 public class Player extends ATrainer {
 
-    private int currentExp, maxExp,  maxHunger,
+    private int currentExp, maxExp, maxHunger,
             currentMovementPoints, maxMovementPoints, usedMovementPoints, currentExhaustion,
             maxExhaustion, currentCapacity, maxCapacity;
     private double currentHunger;
@@ -27,8 +27,8 @@ public class Player extends ATrainer {
     private Location location;
     private int x, y;
 
-    public Player(String firstName, String surname,int level, boolean sex,  int currentExp, int maxExp,
-            double currentHunger, int maxHunger, int currentMovementPoints,int maxMovementPoints,
+    public Player(String firstName, String surname, int level, boolean sex, int currentExp, int maxExp,
+            double currentHunger, int maxHunger, int currentMovementPoints, int maxMovementPoints,
             int currentExhaustion, int maxExhaustion, int currentCapacity, int maxCapacity,
             List<ITrainingMethod> trainingMethods, List<IPokemon> storedPokemons,
             Map<World, List<IBadge>> badges, Story story, World world, Location location, int x, int y,
@@ -54,53 +54,76 @@ public class Player extends ATrainer {
         this.y = y;
     }
 
-
     public void moveLeft() {
-        if (x > 0 && location.getMap()[x-1][y].isAccessible(story, world) && 
-                location.getMap()[x - 1][y].getMovementPoints() <= currentMovementPoints) {
+        if (x > 0 && location.getMap()[x - 1][y].isAccessible(story, world)
+                && location.getMap()[x - 1][y].getMovementPoints() <= currentMovementPoints) {
             currentMovementPoints -= location.getMap()[x - 1][y].getMovementPoints();
             usedMovementPoints += location.getMap()[x - 1][y].getMovementPoints();
-            currentHunger -= location.getMap()[x][y - 1].getMovementPoints()/2.0;
-            x--;
+            currentHunger -= location.getMap()[x][y - 1].getMovementPoints() / 2.0;
+            if (location.getMap()[x - 1][y].getNewLocation() != null) {
+                x = location.getMap()[x - 1][y].getNewLocationX();
+                y = location.getMap()[x - 1][y].getNewLocationY();
+                location = location.getMap()[x - 1][y].getNewLocation();
+            } else {
+                x--;
+            }
             checkExhaustion();
         }
     }
 
     public void moveRight() {
-        if (x < location.getMap().length - 1 && location.getMap()[x + 1][y].isAccessible(story, world) && 
-                location.getMap()[x + 1][y].getMovementPoints() <= currentMovementPoints) {
+        if (x < location.getMap().length - 1 && location.getMap()[x + 1][y].isAccessible(story, world)
+                && location.getMap()[x + 1][y].getMovementPoints() <= currentMovementPoints) {
             currentMovementPoints -= location.getMap()[x + 1][y].getMovementPoints();
             usedMovementPoints += location.getMap()[x + 1][y].getMovementPoints();
-            currentHunger -= location.getMap()[x][y - 1].getMovementPoints()/2.0;
-            x++;
+            currentHunger -= location.getMap()[x][y - 1].getMovementPoints() / 2.0;
+            if (location.getMap()[x + 1][y].getNewLocation() != null) {
+                x = location.getMap()[x + 1][y].getNewLocationX();
+                y = location.getMap()[x + 1][y].getNewLocationY();
+                location = location.getMap()[x + 1][y].getNewLocation();
+            } else {
+                x++;
+            }
             checkExhaustion();
         }
     }
 
     public void moveUp() {
-        if (y > 0 && location.getMap()[x][y - 1].isAccessible(story, world) &&
-                location.getMap()[x][y - 1].getMovementPoints() <= currentMovementPoints) {
+        if (y > 0 && location.getMap()[x][y - 1].isAccessible(story, world)
+                && location.getMap()[x][y - 1].getMovementPoints() <= currentMovementPoints) {
             currentMovementPoints -= location.getMap()[x][y - 1].getMovementPoints();
             usedMovementPoints += location.getMap()[x][y - 1].getMovementPoints();
-            currentHunger -= location.getMap()[x][y - 1].getMovementPoints()/2.0;
-            y--;
+            currentHunger -= location.getMap()[x][y - 1].getMovementPoints() / 2.0;
+            if (location.getMap()[x][y - 1].getNewLocation() != null) {
+                x = location.getMap()[x][y - 1].getNewLocationX();
+                y = location.getMap()[x][y - 1].getNewLocationY();
+                location = location.getMap()[x][y - 1].getNewLocation();
+            } else {
+                y--;
+            }
             checkExhaustion();
         }
     }
 
     public void moveDown() {
-        if (y < location.getMap()[x].length - 1 && location.getMap()[x][y + 1].isAccessible(story, world) && 
-                location.getMap()[x][y + 1].getMovementPoints() <= currentMovementPoints) {
+        if (y < location.getMap()[x].length - 1 && location.getMap()[x][y + 1].isAccessible(story, world)
+                && location.getMap()[x][y + 1].getMovementPoints() <= currentMovementPoints) {
             currentMovementPoints -= location.getMap()[x][y + 1].getMovementPoints();
             usedMovementPoints += location.getMap()[x][y + 1].getMovementPoints();
-            currentHunger -= location.getMap()[x][y - 1].getMovementPoints()/2.0;
-            y++;
+            currentHunger -= location.getMap()[x][y - 1].getMovementPoints() / 2.0;
+            if (location.getMap()[x][y + 1].getNewLocation() != null) {
+                x = location.getMap()[x][y + 1].getNewLocationX();
+                y = location.getMap()[x][y + 1].getNewLocationY();
+                location = location.getMap()[x][y + 1].getNewLocation();
+            } else {
+                y++;
+            }
             checkExhaustion();
         }
     }
-    
-    private void checkExhaustion(){
-        if (usedMovementPoints >= 10){
+
+    private void checkExhaustion() {
+        if (usedMovementPoints >= 10) {
             usedMovementPoints -= 10;
             currentExhaustion--;
         }
@@ -141,10 +164,8 @@ public class Player extends ATrainer {
     public int getMaxMovementPoints() {
         return maxMovementPoints;
     }
-    
-    public void resetForNextTurn(){
+
+    public void resetForNextTurn() {
         currentMovementPoints = maxMovementPoints;
     }
-    
-    
 }

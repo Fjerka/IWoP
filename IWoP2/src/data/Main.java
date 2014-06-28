@@ -24,8 +24,11 @@ public class Main {
      */
     public static void main(String[] args) {
         World[] worlds = {new World("New World", 1)};
+        String[] locationFiles = {"location1.txt", "location2.txt"};
+        String[] locationNames = {"Crossroads", "Bridge"};
         try {
-            worlds[0].loadNewLocation("location2.txt", "Crossroads");
+            System.out.println("yes");
+            worlds[0].createLocations(2, locationFiles, locationNames);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -40,10 +43,9 @@ public class Main {
         pokemons[1].setPicture("images/pokemon/019Rattata.png");
         Player[] players = {new Player("Ash", "Ketchum", 0, true, 0, 100, 70, 70,
             100, 100, 50, 50, 100, 100, null, null, null, story, worlds[0],
-            worlds[0].getLoactions()[0], 1, 1, pokemons, null, null)};
+            worlds[0].getLocations()[0], 1, 1, pokemons, null, null)};
         Game game = new Game(players, worlds);
         View view = new View(game);
         Controller controller = new Controller(game, view);
     }
 }
-
