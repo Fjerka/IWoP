@@ -103,6 +103,9 @@ public class MapApplet extends JApplet {
 
     public void setParameters(Location location, int playerX, int playerY) {
         this.location = location;
+        if (location == null) {
+            System.out.println("je null");
+        }
         if (!this.location.equals(location)) {
             loadedImages.clear();
         }

@@ -115,6 +115,9 @@ public class Player extends ATrainer {
                 x = location.getMap()[x][y + 1].getNewLocationX();
                 y = location.getMap()[x][y + 1].getNewLocationY();
                 location = location.getMap()[x][y + 1].getNewLocation();
+                if (location == null) {
+                    System.out.println("je null v move down");
+                }
             } else {
                 y++;
             }
