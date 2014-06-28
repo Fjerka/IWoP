@@ -59,11 +59,13 @@ public class Player extends ATrainer {
                 && location.getMap()[x - 1][y].getMovementPoints() <= currentMovementPoints) {
             currentMovementPoints -= location.getMap()[x - 1][y].getMovementPoints();
             usedMovementPoints += location.getMap()[x - 1][y].getMovementPoints();
-            currentHunger -= location.getMap()[x][y - 1].getMovementPoints() / 2.0;
+            currentHunger -= location.getMap()[x - 1][y].getMovementPoints() / 2.0;
             if (location.getMap()[x - 1][y].getNewLocation() != null) {
+                int tmpX = x;
+                int tmpY = y;
                 x = location.getMap()[x - 1][y].getNewLocationX();
                 y = location.getMap()[x - 1][y].getNewLocationY();
-                location = location.getMap()[x - 1][y].getNewLocation();
+                location = location.getMap()[tmpX - 1][tmpY].getNewLocation();
             } else {
                 x--;
             }
@@ -76,11 +78,13 @@ public class Player extends ATrainer {
                 && location.getMap()[x + 1][y].getMovementPoints() <= currentMovementPoints) {
             currentMovementPoints -= location.getMap()[x + 1][y].getMovementPoints();
             usedMovementPoints += location.getMap()[x + 1][y].getMovementPoints();
-            currentHunger -= location.getMap()[x][y - 1].getMovementPoints() / 2.0;
+            currentHunger -= location.getMap()[x + 1][y].getMovementPoints() / 2.0;
             if (location.getMap()[x + 1][y].getNewLocation() != null) {
+                int tmpX = x;
+                int tmpY = y;
                 x = location.getMap()[x + 1][y].getNewLocationX();
                 y = location.getMap()[x + 1][y].getNewLocationY();
-                location = location.getMap()[x + 1][y].getNewLocation();
+                location = location.getMap()[tmpX + 1][tmpY].getNewLocation();
             } else {
                 x++;
             }
@@ -95,9 +99,11 @@ public class Player extends ATrainer {
             usedMovementPoints += location.getMap()[x][y - 1].getMovementPoints();
             currentHunger -= location.getMap()[x][y - 1].getMovementPoints() / 2.0;
             if (location.getMap()[x][y - 1].getNewLocation() != null) {
+                int tmpX = x;
+                int tmpY = y;
                 x = location.getMap()[x][y - 1].getNewLocationX();
                 y = location.getMap()[x][y - 1].getNewLocationY();
-                location = location.getMap()[x][y - 1].getNewLocation();
+                location = location.getMap()[tmpX][tmpY - 1].getNewLocation();
             } else {
                 y--;
             }
@@ -110,14 +116,13 @@ public class Player extends ATrainer {
                 && location.getMap()[x][y + 1].getMovementPoints() <= currentMovementPoints) {
             currentMovementPoints -= location.getMap()[x][y + 1].getMovementPoints();
             usedMovementPoints += location.getMap()[x][y + 1].getMovementPoints();
-            currentHunger -= location.getMap()[x][y - 1].getMovementPoints() / 2.0;
+            currentHunger -= location.getMap()[x][y + 1].getMovementPoints() / 2.0;
             if (location.getMap()[x][y + 1].getNewLocation() != null) {
+                int tmpX = x;
+                int tmpY = y;
                 x = location.getMap()[x][y + 1].getNewLocationX();
                 y = location.getMap()[x][y + 1].getNewLocationY();
-                location = location.getMap()[x][y + 1].getNewLocation();
-                if (location == null) {
-                    System.out.println("je null v move down");
-                }
+                location = location.getMap()[tmpX][tmpY + 1].getNewLocation();
             } else {
                 y++;
             }
