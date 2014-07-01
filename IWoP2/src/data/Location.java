@@ -5,7 +5,7 @@
 package data;
 
 import data.interfaces.IMap;
-import data.interfaces.INPC;
+import data.interfaces.IActionable;
 import data.map.LocationSwitch;
 import data.map.MapFactory;
 import java.io.File;
@@ -21,16 +21,16 @@ public class Location {
 
     private String name;
     private IMap[][] map;
-    private INPC[][] npcs;
+    private IActionable[][] actionables;
 
     public Location(String name) {
         this.name = name;
     }
 
-    public Location(String name, IMap[][] map, INPC[][] npcs) {
+    public Location(String name, IMap[][] map, IActionable[][] actionables) {
         this.name = name;
         this.map = map;
-        this.npcs = npcs;
+        this.actionables = actionables;
     }
 
     public IMap[][] getMap() {
@@ -39,6 +39,10 @@ public class Location {
 
     public String getName() {
         return name;
+    }
+
+    public IActionable[][] getActionables() {
+        return actionables;
     }
 
     public void loadNewLocation(String file, Location[] locations) throws FileNotFoundException {
@@ -66,4 +70,6 @@ public class Location {
             map[tmpX][tmpY] = new LocationSwitch(map[tmpX][tmpY].getTileFile(), locations[loca], nx, ny, map[tmpX][tmpY].getMovementPoints());
         }
     }
+    
+ 
 }

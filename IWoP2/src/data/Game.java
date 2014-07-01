@@ -26,6 +26,10 @@ public class Game {
         year = 1;
     }
 
+    public Player[] getPlayers() {
+        return players;
+    }
+
     public Player getActivePlayer() {
         return activePlayer;
     }

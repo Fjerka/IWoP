@@ -5,7 +5,7 @@
 package data;
 
 import data.interfaces.IMap;
-import data.interfaces.INPC;
+import data.interfaces.IActionable;
 import data.map.MapFactory;
 import java.io.File;
 import java.io.FileNotFoundException;

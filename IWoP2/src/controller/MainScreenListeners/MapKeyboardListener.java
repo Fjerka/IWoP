@@ -82,6 +82,9 @@ public class MapKeyboardListener implements KeyListener {
                 game.nextTurn();
                 view.updateMainScreen(game.getActivePlayer().getLocation(), game.getActivePlayer().getX(), game.getActivePlayer().getY());
                 view.mainScreen.updateDate(game.getTextForStatusLine());
+            case KeyEvent.VK_E:
+                game.getActivePlayer().makeAction(game);
+                view.updateMainScreen(game.getActivePlayer().getLocation(), game.getActivePlayer().getX(), game.getActivePlayer().getY());
             default:
                 break;
         }
