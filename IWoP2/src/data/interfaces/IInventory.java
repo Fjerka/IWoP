@@ -4,10 +4,22 @@
  */
 package data.interfaces;
 
+import java.util.Map;
+
 /**
  *
  * @author Stefan
  */
 public interface IInventory {
+    
+    public double getCurrentWeightOfContent();
+    
+    public double getMaxContentWeight();
+    
+    public double getMaxItemWeight();
+    
+    public Map<IItem, Integer> getItems();
+    
+    public void addItem(IItem item, int count);
     
 }

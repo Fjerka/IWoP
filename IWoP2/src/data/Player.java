@@ -32,8 +32,8 @@ public class Player extends ATrainer {
             int currentExhaustion, int maxExhaustion, int currentCapacity, int maxCapacity,
             List<ITrainingMethod> trainingMethods, List<IPokemon> storedPokemons,
             Map<World, List<IBadge>> badges, Story story, World world, Location location, int x, int y,
-            IPokemon[] partyPokemons, IInventory inventory, List<ISkill> skills) {
-        super(firstName, surname, sex, level, partyPokemons, inventory, skills);
+            IPokemon[] partyPokemons, List<IInventory> inventories, List<ISkill> skills) {
+        super(firstName, surname, sex, level, partyPokemons, inventories, skills);
         this.currentExp = currentExp;
         this.maxExp = maxExp;
         this.currentHunger = currentHunger;
